@@ -11,3 +11,5 @@ public class IsPalindromeApplication {
 	}
 
 }
+
+// Jalanin aplikasinya disini
