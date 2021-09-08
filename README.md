@@ -73,14 +73,25 @@ Jadi, kita bisa menggunakan @PathVariable ketika datanya ingin diteruskan di URL
 
 ### Referensi
 https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues
+
 https://devblogs.microsoft.com/devops/squash-a-whole-new-way-to-merge-pull-requests/
+
 https://docs.microsoft.com/en-us/azure/devops/repos/git/merging-with-squash?view=azure-devops
+
 https://www.seguetech.com/a-review-of-software-version-control-systems-benefits-and-why-it-matters/
+
 https://www.upgrad.com/blog/what-is-a-version-control-system-git-basics-benefits/
+
 https://www.infoworld.com/article/2072203/an-introduction-to-maven-2.html
+
 https://www.geeksforgeeks.org/introduction-apache-maven-build-automation-tool-java-projects/
+
 https://www.g2.com/products/apache-maven/competitors/alternatives
+
 https://www.dineshonjava.com/requestparam-vs-pathvariable-annotations-in-spring-mvc/
+
 https://www.codebyamir.com/blog/spring-mvc-essentials-requestmapping-pathvariable-annotations
+
 https://www.techopedia.com/definition/3828/software-library
+
 https://askubuntu.com/questions/361741/what-are-dependencies#:~:text=3641%204-,0,one%20of%20the%20other%20modules.
