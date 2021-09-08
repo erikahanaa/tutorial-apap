@@ -11,15 +11,20 @@
 ### Github
 
 **1. Apa itu Issue Tracker? Apa saja masalah yang dapat diselesaikan dengan Issue Tracker?**
+
 Issue Tracker ialah sebuah alat untuk tracking yang terintegrasi dengan repositori Github. Dengan Issue Tracker, kita dapat melacak pekerjaan kita pada Github dan tetap up to date dengan setiap perubahan. Selain itu, Issue Tracker juga sangat berguna ketika kita bekerja dalam satu repositori bersama tim, sehingga komunikasi dapat menjadi lebih efektif. Beberapa permasalahan yang dapat diselesaikan dengan Issue Tracker antara lain;
 - Membagi tugas ke masing-masing anggota dalam tim
 - Track pekerjaan tiap-tiap anggota
 - Berkomunikasi antar satu sama lain dengan fitur mention
 - Memastikan apakah codingan anggota tim sudah ok atau belum melalui fitur review. Jadi baru pull ketika di-accept oleh reviewer untuk meminimalisir kesalahan
 - Bug tracker untuk proyek yang open source
+
 **2. Apa perbedaan dari git merge dan git merge --squash?**
+
 Baik git merge maupun git merge --squash sama-sama memiliki fungsi yang sama, yaitu untuk menggabungkan branch menjadi satu. Perbedaannya ialah dengan command git merge --squash, penggabungan di git akan menghasilkan satu parent saja. File hasil git merge --squash akan sama saja dengan file yang pakai command git merge biasa, namun ada perbedaan pada metadata commit yang hanya menampilkan satu parent commit saja. Hasilnya akan berupa satu commit di target branch dengan semua perubahan dari merge biasa. Singkatnya, git merge --squash ialah opsi untuk menyingkat riwayat git dari branch setelah selesai pull request. Git merge --squash ini biasanya digunakan agar history kita terlihat lebih rapih dan easier to  read.
+
 **3. Apa keunggulan menggunakan Version Control System seperti Git dalam pengembangan suatu aplikasi?**
+
 Version Control System atau VCS ialah sebuah sistem yang membantu pengguna untuk keep track seluruh koleksi file pengguna. VCS juga memungkinkan pengguna untuk mengakses file dari berbagai device. Git merupakan salah satu contohnya. Dalam hal ini, beberapa benefits penggunaan VCS dalam pengembangan aplikasi antara lain;
 - Menyediakan slot repositori yang banyak dan dapat dimanfaatkan untuk proyek yang berbeda lengkap dengan fitur history
 - Memiliki fitur branch yang dapat dimanfaatkan anggota tim untuk mengerjakan bagiannya masing-masing (bisa digunakan untuk mengerjakan masing-masing fitur dari sebuah app)
@@ -30,8 +35,11 @@ Version Control System atau VCS ialah sebuah sistem yang membantu pengguna untuk
 
 ### Spring
 **4. Apa itu library & dependency?**
+
 Library ialah berbagai data dan kode pemrograman yang terdokumentasi dan digunakan untuk mengembangkan program. Library ini sangat memudahkan pengembang dalam mengerjakan sautu proyek. Kemudian, dependency merupakan kondisi di mana suatu objek bergantung pada objek lainnya.
+
 **5. Apa itu Maven? Mengapa kita menggunakan Maven? Apakah ada alternatif dari Maven?**
+
 Maven ialah sebuah project management tool yang berbasis project object model (POM) dan dirancang untuk mengambil banyak pekerjaan dari build process. Maven biasanya digunakan untuk proyek berbasis Java. Maven menggunakan pendekatan deklaratif, sehingga membantu menegakkan development standard di seluruh perusahaan dan mengurangi waktu yang dibutuhkan untuk menulis dan memelihara build script. Beberapa benefits menggunakan Maven antara lain;
 - Memudahkan kita untuk build suatu proyek
 - Dapat menambahkan Jars maupun dependensi lain dengan memanfaatkan Maven
@@ -39,15 +47,24 @@ Maven ialah sebuah project management tool yang berbasis project object model (P
 - Dengan menggunakan Maven, kita dapat membangun sejumlah proyek menjadi tipe output seperti JAR, WAR dan lainnya tanpa melakukan skrip apapun
 - Kita dapat dengan mudah mengintegrasikan proyek kita dengan sistem kontrol sumber seperti Git
 Alternatif dari Maven antara lain adalah ANT, Red Hat Ansible Automation Platform, Jenkins, Travis CI, dan masih banyak lagi.
+
 **6. Selain untuk pengembangan web, apa saja yang bisa dikembangkan dengan Spring framework?**
+
 Selain pengembangan web, Spring Framework juga dapat dimanfaatkan untuk membangun aplikasi enterprise dan membangun microservice.
+
 **7. Apa perbedaan dari @RequestParam dan @PathVariable? Kapan sebaiknya menggunakan @RequestParam atau @PathVariable?**
+
 Baik @RequestParam maupun @PathVariable digunakan untuk fetch nilai dari parameter yang di-request. Perbedaan signifikan antara @RequestParam dan @PathVariable sendiri terletak pada tempat mengakses nilainya. @RequestParam digunakan untuk mengakses nilai parameter query, sedangkan @PathVariable digunakan untuk mengakses nilai dari template URL. 
 Berikut merupakan contoh ketika kita ingin mengakses melalui @PathVariable.
+
 `http://localhost:8080/is-palindrome/isi`
+
 Dan ini merupakan contoh ketika kita akses melalui @RequestParam
+
 `http://localhost:8080/is-palindrome?kalimat=isi`
+
 Jadi, kita bisa menggunakan @PathVariable ketika datanya ingin diteruskan di URL, sedangkan ketika datanya ada di dalam parameter query, baru kita menggunakan @RequestParam.
+
 
 ### What I did not understand😩
 - [ ] Cara pakai issue di Github yang benar
