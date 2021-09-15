@@ -27,10 +27,10 @@ Ketika mengakses link tersebut, maka akan muncul error. Hal ini dikarenakan pada
 Link yang harus diakses adalah link untuk menuju halaman view Agensi dengan parameter tertentu. Maka dari itu, Papa APAP harus menuju url berikut: http://localhost:8080/agensi/view?idAgensi=Papa%20APAP . URL ini menunjukan bahwa kita mencari suatu agensi dengan id Agensi berupa Papa APAP sehingga pada URL kita bisa lihat idAgensi nya sesuai yang diminta. Ketika kita ingin mencari agensi dengan id lain kita tinggal ganti id agensinya saja di URL. Lalu, agar URL tersebut tidak error, saya akan menambahkan agensi dengan id Agensi Papa APAP dengan link berikut: http://localhost:8080/agensi/add?idAgensi=Papa%20APAP&namaAgensi=Papa%20APAP&alamat=Fasilkom%20Jaya&noTelepon=088888888123 , sehingga ketika di-search akan muncul seperti pada screenshot ini.
 
 Link Screenshot buat agensi baru: https://ibb.co/LQygZJ4
-![image](https://ibb.co/LQygZJ4/NOMOR-4-BERHASIL-DITAMBAHKAN.jpeg)
+![image](https://i.ibb.co/tZ62Jxy/NOMOR-4-BERHASIL-DITAMBAHKAN.jpg)
 
 Link Screenshot agensi baru muncul ketika di search: https://ibb.co/QMsQnRw
-![image](https://ibb.co/QMsQnRw/NOMOR-4-HASIL-SEARCH.jpeg)
+![image](https://i.ibb.co/BB83jxM/NOMOR-4-HASIL-SEARCH.jpg)
 
 **5. Tambahkan 1 contoh Travel Agensi lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/agensi/viewAll , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.**
 
@@ -38,7 +38,7 @@ Untuk soal ini, saya menambahka suatu travel agensi baru dengan id agensi 2, nam
 Selanjutnya, saya akan menuju halaman view All untuk melihat agensi yang sudah terdaftar. Berikut tampilannya. Dari screenshot, dapat dilihat bahwa id yang baru saya masukkan dengan nama agensi ErikaKeren sudah muncul😆
 
 Link Screenshot buat agensi baru: https://ibb.co/6PCCtGd
-![image](https://ibb.co/6PCCtGd/NOMOR-5-BUAT-BARU.jpeg)
+![image](https://i.ibb.co/mqWWydx/NOMOR-5-BUAT-BARU.jpg)
 
 Link Screenshot seluruh agensi: https://ibb.co/smjNsjJ
 ![image](https://i.ibb.co/Tvc7Pcq/NOMOR-5-UDAH-TERBUAT.jpeg)
