@@ -8,6 +8,8 @@
 
 ### What I have learned today✅😊
 
+Hari ini udah belajar gimana cara untuk organize domain logic and service layer through tutorial 2😄 Jadi, sekarang udah lumayan ngerti gimana caranya membuat kedua hal itu saling berhubungan dan juga membuat service untuk create, read, update, dan delete pakai konsep MVC!
+
 ### Pertanyaan
 
 **1. Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut: http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi?**
@@ -36,6 +38,9 @@ Link Screenshot buat agensi baru: https://ibb.co/6PCCtGd
 
 Link Screenshot seluruh agensi: https://ibb.co/smjNsjJ
 ![image](https://i.ibb.co/Tvc7Pcq/NOMOR-5-UDAH-TERBUAT.jpeg)
+
+### What I did not understand😩
+- [ ] Masih belum terbayang jelas sebenarnya tentang konsep Autowiring dan kapan saja kita harus pakai @Autowired itu😵
 
 ## Tutorial 1✨
 
