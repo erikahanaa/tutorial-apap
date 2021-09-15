@@ -24,13 +24,7 @@ Ketika mengakses link tersebut, maka akan muncul error. Hal ini dikarenakan pada
 
 **4. Jika Papa APAP ingin melihat Travel Agensi dengan nama Papa APAP, link apa yang harus diakses?**
 
-Link yang harus diakses adalah link untuk menuju halaman view Agensi dengan parameter tertentu. Maka dari itu, Papa APAP harus menuju url berikut: http://localhost:8080/agensi/view?idAgensi=Papa%20APAP . URL ini menunjukan bahwa kita mencari suatu agensi dengan id Agensi berupa Papa APAP sehingga pada URL kita bisa lihat idAgensi nya sesuai yang diminta. Ketika kita ingin mencari agensi dengan id lain kita tinggal ganti id agensinya saja di URL. Lalu, agar URL tersebut tidak error, saya akan menambahkan agensi dengan id Agensi Papa APAP dengan link berikut: http://localhost:8080/agensi/add?idAgensi=Papa%20APAP&namaAgensi=Papa%20APAP&alamat=Fasilkom%20Jaya&noTelepon=088888888123 , sehingga ketika di-search akan muncul seperti pada screenshot ini.
-
-Link Screenshot buat agensi baru: https://ibb.co/LQygZJ4
-![image](https://i.ibb.co/tZ62Jxy/NOMOR-4-BERHASIL-DITAMBAHKAN.jpg)
-
-Link Screenshot agensi baru muncul ketika di search: https://ibb.co/QMsQnRw
-![image](https://i.ibb.co/BB83jxM/NOMOR-4-HASIL-SEARCH.jpg)
+Link yang harus diakses adalah link untuk menuju halaman view Agensi dengan parameter tertentu. Maka dari itu, Papa APAP harus menuju url berikut: http://localhost:8080/agensi/view?idAgensi=1 . Kita tidak bisa mengakses langsung dengan parameter nama Papa APAP karena kita tidak memiliki method untuk retrieve detail agensi dengan menggunakan nama, melainkan kita bisa mencarinya lewat id. Maka dari itu, karena Travel Agensi dengan nama Papa APAP ini memiliki id Agensi 1, maka link yang bisa diakses adalah link http://localhost:8080/agensi/view?idAgensi=1 ini dengan parameter id.
 
 **5. Tambahkan 1 contoh Travel Agensi lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/agensi/viewAll , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.**
 
