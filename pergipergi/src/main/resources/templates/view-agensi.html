@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <title> View Travel Agensi </title>
+</head>
+<body>
+    <h2>Informasi Agensi</h2>
+    <h3 th:text = "'Id Agensi       : ' + ${agensi.idAgensi}"></h3>
+    <h3 th:text = "'Nama Agensi     : ' + ${agensi.namaAgensi}"></h3>
+    <h3 th:text = "'Alamat Agensi   : ' + ${agensi.alamat}"></h3>
+    <h3 th:text = "'Nomor Telepon   : ' + ${agensi.noTelepon}"></h3>
+    <a href = "/agensi/viewAll"> Kembali </a>
+</body>
+</html>

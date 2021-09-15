@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <title> View All Travel Agensi </title>
+</head>
+<body>
+    <h2>Daftar Seluruh Travel Agensi</h2>
+    <div th:each="agensi: ${listAgensi}">
+        <h3 th:text = "'Id Agensi       : ' + ${agensi.idAgensi}"></h3>
+        <h3 th:text = "'Nama Agensi     : ' + ${agensi.namaAgensi}"></h3>
+        <h3 th:text = "'Alamat Agensi   : ' + ${agensi.alamat}"></h3>
+        <h3 th:text = "'Nomor Telepon   : ' + ${agensi.noTelepon}"></h3>
+        <hr>
+    </div>
+</body>
+</html>

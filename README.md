@@ -4,6 +4,41 @@
 
 * **Erika Hana Prasanti** - *1906298872* - *APAP B*
 
+## Tutorial 2✨
+
+### What I have learned today✅😊
+
+### Pertanyaan
+
+**1. Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut: http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi?**
+
+Ketika klik link tersebut, maka yang terjadi adalah error. Hal ini karena ketika kita membuka link tersebut, maka kita akan diarahkan ke halaman add-idAgensi, sedangkan kita belum membuat halaman untuk menampilkan add-idAgensi. Jika nanti halaman add-idAgensi nya sudah terbuat, maka halaman tersebut nantinya akan bisa diakses.
+
+**2. Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat**
+
+Anotasi @Autowired pada class Controller merupakan implementasi dari konsep dependency injection. Kemudian, cara kerja @Autowired dalam konteks service dan controller pada lab kali ini adalah @Autowired melakukan dependency injection terhadap service yang mengimplementasikan autowiring secara otomatis, sehingga kita tidak perlu lagi menambahkan argumen di constructor, maupun menyediakan setter getter lagi.
+
+**3. Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut: http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.**
+
+Ketika mengakses link tersebut, maka akan muncul error. Hal ini dikarenakan pada link tersebut tidak ada parameter untuk menambahkan nomor telepon, sehingga link tersebut terhitung tidak lengkap dan error. Untuk bisa sampai di halaman add-agensi, keseluruhan parameter, termasuk idAgensi, namaAgensi, alamat, dan nomorTelepon harus ada semua karena di controller kita setting bernilai true. Nah, jika ingin mengakses halamannya dan memastikan tidak error, maka kita perlu untuk melengkapi semua parameter pada url, kemudian nanti akan muncul halaman yang berisikan tulisan "Travel Agensi dengan id Agensi 1 berhasil ditambahkan." dengan tombol "Kembali" di bawahnya. Hal ini berarti halaman yang menampilkan add-agensi sudah bisa diakses karena kita sudah berhasil buat html-nya. 
+
+**4. Jika Papa APAP ingin melihat Travel Agensi dengan nama Papa APAP, link apa yang harus diakses?**
+
+Link yang harus diakses adalah link untuk menuju halaman view Agensi dengan parameter tertentu. Maka dari itu, Papa APAP harus menuju url berikut: http://localhost:8080/agensi/view?idAgensi=Papa%20APAP . URL ini menunjukan bahwa kita mencari suatu agensi dengan id Agensi berupa Papa APAP sehingga pada URL kita bisa lihat idAgensi nya sesuai yang diminta. Ketika kita ingin mencari agensi dengan id lain kita tinggal ganti id agensinya saja di URL. Lalu, agar URL tersebut tidak error, saya akan menambahkan agensi dengan id Agensi Papa APAP dengan link berikut: http://localhost:8080/agensi/add?idAgensi=Papa%20APAP&namaAgensi=Papa%20APAP&alamat=Fasilkom%20Jaya&noTelepon=088888888123 , sehingga ketika di-search akan muncul seperti pada screenshot ini.
+
+Link Screenshot buat agensi baru: https://ibb.co/LQygZJ4
+
+Link Screenshot agensi baru muncul ketika di search: https://ibb.co/QMsQnRw
+
+**5. Tambahkan 1 contoh Travel Agensi lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/agensi/viewAll , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.**
+
+Untuk soal ini, saya menambahka suatu travel agensi baru dengan id agensi 2, nama agensi ErikaKeren, alamat FasilkomOke, dan nomor telepon 021727666666 dengan cara memasukkan link berikut http://localhost:8080/agensi/add?idAgensi=2&namaAgensi=ErikaKeren&alamat=FasilkomOke&noTelepon=021727666666 . Berikut saya lampirkan screenshot kalau id Agensi baru sudah berhasil terbuat. 
+Selanjutnya, saya akan menuju halaman view All untuk melihat agensi yang sudah terdaftar. Berikut tampilannya. Dari screenshot, dapat dilihat bahwa id yang baru saya masukkan dengan nama agensi ErikaKeren sudah muncul😆
+
+Link Screenshot buat agensi baru: https://ibb.co/6PCCtGd
+
+Link Screenshot seluruh agensi: https://ibb.co/smjNsjJ
+
 ## Tutorial 1✨
 
 ### What I have learned today✅😊
@@ -67,9 +102,9 @@ Jadi, kita bisa menggunakan @PathVariable ketika datanya ingin diteruskan di URL
 
 
 ### What I did not understand😩
-- [ ] Cara pakai issue di Github yang benar
-- [ ] Buat codingan pakai Spring ini jadi harus buat programnya di mana T-T
-- [ ] File apa aja yang harus dibuat ketika mau menjalankan App (di contoh Tutorial ini kan ada banyak file Java dan file HTML terus yang aku bingung defaultnya tuh apaa)
+- [v] Cara pakai issue di Github yang benar
+- [v] Buat codingan pakai Spring ini jadi harus buat programnya di mana T-T
+- [v] File apa aja yang harus dibuat ketika mau menjalankan App (di contoh Tutorial ini kan ada banyak file Java dan file HTML terus yang aku bingung defaultnya tuh apaa)
 
 ### Referensi
 https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues
