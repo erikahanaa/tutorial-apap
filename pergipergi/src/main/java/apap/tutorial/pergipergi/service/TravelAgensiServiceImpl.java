@@ -3,42 +3,60 @@ package apap.tutorial.pergipergi.service;
 import org.springframework.stereotype.Service;
 
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
+import apap.tutorial.pergipergi.repository.TravelAgensiDb;
 
-import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
 
 @Service
+@Transactional
 public class TravelAgensiServiceImpl implements TravelAgensiService{
     
-    private List<TravelAgensiModel> listAgensi;
+    @Autowired
+    TravelAgensiDb travelAgensiDb;
 
-    public TravelAgensiServiceImpl(){
-        listAgensi = new ArrayList<>(); 
-        // List<TipeData> listAgensi
-    }
+    // private List<TravelAgensiModel> listAgensi;
+
+    // public TravelAgensiServiceImpl(){
+    //     listAgensi = new ArrayList<>(); 
+    //     // List<TipeData> listAgensi
+    // }
 
     @Override
-    public void addAgensi(TravelAgensiModel travelAgensiModel){
-        listAgensi.add(travelAgensiModel);
+    public void addAgensi(TravelAgensiModel travelAgensi){
+        travelAgensiDb.save(travelAgensi);
     }
 
     @Override
     public List<TravelAgensiModel> getListAgensi(){
-        return listAgensi;
+        return travelAgensiDb.findAll();
     }
 
     @Override
-    public TravelAgensiModel getAgensiByIdAgensi(String idAgensi){
-        for (TravelAgensiModel agensi: listAgensi){
-            if (agensi.getIdAgensi().equals(idAgensi)){
-                return agensi;
-            }
-
-        }
-        return null;
+    public List<TravelAgensiModel> findAllByOrderByNamaAgensiAsc(){
+        return travelAgensiDb.findAllByOrderByNamaAgensiAsc();
     }
 
     @Override
-    public void removeAgensi(TravelAgensiModel travelAgensiModel){
-        listAgensi.remove(travelAgensiModel);
+    public TravelAgensiModel getAgensiByNoAgensi(Long noAgensi){
+        Optional <TravelAgensiModel> agensi = travelAgensiDb.findByNoAgensi(noAgensi);
+        if (agensi.isPresent()) return agensi.get();
+        else return null;
     }
+
+    @Override
+    public TravelAgensiModel updateAgensi(TravelAgensiModel travelAgensi){
+        travelAgensiDb.save(travelAgensi);
+        return travelAgensi;
+    }
+
+    @Override
+    public void deleteAgensi(TravelAgensiModel travelAgensi){
+        travelAgensiDb.delete(travelAgensi);
+    }
+
+
 }
