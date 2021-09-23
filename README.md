@@ -32,7 +32,12 @@ Perbedaan @JoinTable dan @JoinColumn ialah pada @JoinTable, ia menyimpan id dari
 
 **4. Pada class TourGuideModel, digunakan anotasi @JoinColumn pada atribut agensi, apa kegunaan dari name, referencedColumnName, dan nullable dalam anotasi tersebut? dan apa perbedaan nullable dan penggunaan anotasi @NotNull**
 
-jawaban no 4
+Pada @JoinColumn di atribut agensi, berikut merupakan masing-masing kegunaan dari:
+- name: sebagai foreign key dari tabel TourGuideModel dan foreign key ini digunakan untuk menghubungkan tabel TourGuideModel dan TravelGuideModel.
+- referencedColumnName: digunakan sebagai nama atribut untuk kolom yang direferensi pada tabel destinasi.
+- nullable: digunakan untuk mengecek apakah foreign key pada tabel tidak bernilai null.
+
+Lalu, perbedaan antara nullable dan penggunaan anotasi @NotNull adalah anotasi @NotNull memberi tahu implementasi Validation untuk memeriksa apakah atributnya bukan nol. Jika validasi gagal, Hibernate tidak akan mengeksekusi pernyataan SQL apa pun. Di sisi lain, nullable digunakan hanya untuk menambahkan batasan not null ke definisi tabel. Hibernate tidak akan melakukan validasi apa pun pada atribut entitas. Namun, Hibernate tetap mengikuti pernyataan SQL UPDATE, dan database akan memvalidasi constraints. Jika atribut entitas adalah nol, pernyataan SQL akan gagal.
 
 **5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER**
 
@@ -46,14 +51,24 @@ jawaban no 4
 
 ### Referensi
 https://javabydeveloper.com/lombok-allargsconstructor-examples/
+
 https://projectlombok.org/features/constructor
+
 https://projectlombok.org/features/GetterSetter
+
 https://zetcode.com/springboot/annotations/
+
 https://stackoverflow.com/questions/30288464when-should-i-use-joincolumn-or-jointable-with-jpa#:~:text=%40JoinColumn%20will%20define%20the%20target,Entity%20table%20(e.g.%20B%20).&text=%40JoinTable%20will%20use%20a%20separate,relationship%20between%20A%20and%20B%20.
 https://javakeypoint.wordpress.com/2020/04/21/difference-between-joincolumn-and-jointable-in-hibernate/
+
 https://www.baeldung.com/hibernate-lazy-eager-loading
+
 https://www.java2novice.com/hibernate/eager-vs-lazy-fetch-type/#:~:text=FetchType.,is%20actually%20fetched%20by%20hibernate.
+
 https://stackoverflow.com/questions/13027214/what-is-the-meaning-of-the-cascadetype-all-for-a-manytoone-jpa-association
+
+https://thorben-janssen.com/hibernate-tips-whats-the-difference-between-column-nullable-false-and-notnull/
+
 
 
 
