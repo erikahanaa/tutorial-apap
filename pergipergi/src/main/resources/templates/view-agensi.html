@@ -5,10 +5,46 @@
 </head>
 <body>
     <h2>Informasi Agensi</h2>
-    <h3 th:text = "'Id Agensi       : ' + ${agensi.idAgensi}"></h3>
+    <!-- <h3 th:text = "'Id Agensi       : ' + ${agensi.idAgensi}"></h3>
     <h3 th:text = "'Nama Agensi     : ' + ${agensi.namaAgensi}"></h3>
     <h3 th:text = "'Alamat Agensi   : ' + ${agensi.alamat}"></h3>
-    <h3 th:text = "'Nomor Telepon   : ' + ${agensi.noTelepon}"></h3>
+    <h3 th:text = "'Nomor Telepon   : ' + ${agensi.noTelepon}"></h3> -->
+    <div th:if = "*{listTourGuide.size() != 0}">
+        <form th:action = "@{/tour-guide/delete}" th:object = "${agensi}" method = "POST">
+            <table class = "table">
+                <thead>
+                    <tr>
+                        <th> No </th>
+                        <th> No Tour Guide </th>
+                        <th> Nama Tour Guide </th>
+                        <th> Jenis Kelamin </th>
+                        <th></th>
+                        <th> Hapus </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each = "tourGuide, iterationStatus : ${listTourGuide}"
+                        th:style = "${iterationStatus.even} ? 'font-weight: bold;'">
+                        <td th:text = "${iterationStatus.count}"></td>
+                        <td th:text = "${tourGuide.noTourGuide}"></td>
+                        <td th:text = "${tourGuide.namaTourGuide}"></td>
+                        <td th:if = "${tourGuide.jenisKelamin} == 0"> Laki-Laki </td>
+                        <td th:if = "${tourGuide.jenisKelamin} == 1"> Perempuan </td>
+                        <td>
+                            <a class="btn btn-sm btn primary" th:href = "@{/tour-guide/update} + ${tourGuide.noTourGuide}"> Update </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn primary" th:href = "@{/tour-guide/delete} + ${tourGuide.noTourGuide}"> Delete </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    
+    <div th:unless="*{listTourGuide.size() != 0">
+        <h2 th:text = "'Tidak ada Tour Guide'"></h2>
+    </div>
     <a href = "/agensi/viewAll"> Kembali </a>
 </body>
 </html>
