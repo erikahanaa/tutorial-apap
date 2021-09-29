@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-    <title> View Travel Agensi </title>
-</head>
+    <title>PergiPergi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"></head>
 <body>
-    <h2>Informasi Agensi</h2>
-    <h3 th:text = "'Id Agensi       : ' + ${agensi.idAgensi}"></h3>
-    <h3 th:text = "'Nama Agensi     : ' + ${agensi.namaAgensi}"></h3>
-    <h3 th:text = "'Alamat Agensi   : ' + ${agensi.alamat}"></h3>
-    <h3 th:text = "'Nomor Telepon   : ' + ${agensi.noTelepon}"></h3>
-    <a href = "/agensi/viewAll"> Kembali </a>
+<div class="container">
+    <div class="card m-4 p-4">
+        <div class="card-body">
+            <div class="justify-content-center">
+                <h2>Detail Agensi</h2>
+                <br>
+                <p th:text="'Id Agensi    : ' + ${agensi.noAgensi}"></p>
+                <p th:text="'Nama Agensi  : ' + ${agensi.namaAgensi}"></p>
+                <p th:text="'Alamat Agensi: ' + ${agensi.alamatAgensi}"></p>
+                <p th:text="'Nomor Telepon: ' + ${agensi.noTeleponAgensi}"></p>
+                <p th:text="'Waktu Buka: ' + ${agensi.waktuBuka}"></p>
+                <p th:text="'Waktu Tutup: ' + ${agensi.waktuTutup}"></p>
+                <div class="col">
+                    <br>
+                    <h4>Tour Guide : </h4>
+                    <hr>
+                    <div th:each="guide : ${listTourGuide}">
+                        <p th:text="'Nama : ' + ${guide.namaTourGuide}"></p>
+                        <p th:if="${guide.jenisKelamin == 0}">Jenis Kelamin : Perempuan</p>
+                        <p th:if="${guide.jenisKelamin == 1}">Jenis Kelamin : Laki-laki</p>
+                        <hr>
+                        <a class="btn btn-primary" th:href="@{/tour-guide/update/} + ${agensi.noAgensi} + @{/tour-guide/} + ${guide.noTourGuide}">Update Guide</a>
+                        <a class="btn btn-primary" th:href="@{/tour-guide/delete/} + ${agensi.noAgensi} + @{/tour-guide/} + ${guide.noTourGuide}">Delete Guide</a>
+                        <!-- tour-guide/update/{noAgensi}/tour-guide/{noTourGuide} -->
+                    </div>
+                </div>
+                <br>
+                <a class="btn btn-primary" href="/agensi/viewall">Kembali</a>
+                <a class="btn btn-primary" th:href="@{/tour-guide/add/} + ${agensi.noAgensi}">Tambah Guide</a>
+                <a class="btn btn-primary" th:href="@{/agensi/remove/} + ${agensi.noAgensi}">Hapus Agensi</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
