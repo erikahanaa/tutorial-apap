@@ -76,7 +76,7 @@ public class TourGuideController {
         Model model
     ){
         tourGuideService.updateTourGuide(tourGuide);
-        // model.addAttribute("noTourGuide", updatedTourGuide.getTourGuide());
+        
         return "update-tour-guide";
     }
 

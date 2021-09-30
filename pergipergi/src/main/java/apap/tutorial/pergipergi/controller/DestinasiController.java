@@ -41,3 +41,5 @@ public class DestinasiController {
         return "viewall-destinasi";
     }
 }
+
+// controller destinasi

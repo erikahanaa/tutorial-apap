@@ -9,19 +9,20 @@
 </head>
  
 <body>
-<nav th:replace= "fragments/fragment :: navbar('destinasi')"></nav>
-<div class="container">
-  <div class="card m-4 p-4">
-    <div class="card-body">
-      <div class="justify-content-center">
-        <h2 th:text="'Destinasi dengan nomor destinasi ' + ${noDestinasi} + ' berhasil ditambahkan.'"></h2>
-        <br>
-        <a class="btn btn-primary" href="/">Home</a>
+  <nav th:replace= "fragments/fragment :: navbar('destinasi')"></nav>
+  <div class="container">
+    <div class="card m-4 p-4">
+      <div class="card-body">
+        <div class="justify-content-center">
+          <h2 th:text="'Destinasi dengan nomor destinasi ' + ${noDestinasi} + ' berhasil ditambahkan.'"></h2>
+          <br>
+          <a class="btn btn-primary" href="/">Home</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
- 
-</body>
+ </body>
  
 </html>
+
+<!-- adddestinasi -->
