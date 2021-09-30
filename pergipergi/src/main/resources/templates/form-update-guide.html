@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset = "UTF-8">
+    <title>PergiPergi</title>
+    <object th:include = "fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include = "fragments/fragment :: js" th:remove="tag"></object>
+</head>
+<body>
+<nav th:replace= "fragments/fragment :: navbar('agensi')"></nav>
+<div class="container">
+    <div class="card m-4 p-4">
+        <div class="card-body">
+            <div class="justify-content-center">
+                <h2>Update Tour Guide</h2>
+                <br>
+                <form th:action="@{/tour-guide/update}" th:object="${tourGuide}" method="POST">
+                    <input type="hidden" th:field="*{agensi}" />
+                    <input type="hidden" th:field="*{noTourGuide}" />
+
+                    Nama Tour Guide : <br>
+                    <input class="form-control" type="text" name="namaTourGuide"/>
+                    <br>
+
+                    Jenis Kelamin : <br>
+                    <select name="jenisKelamin">
+                        <option value="0">Perempuan</option>
+                        <option value="1">Laki-laki</option>
+                    </select>
+                    <br><br>
+
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <a class="btn btn-primary" href="/">Home</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

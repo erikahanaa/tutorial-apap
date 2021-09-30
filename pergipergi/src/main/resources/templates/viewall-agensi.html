@@ -1,16 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-    <title> View All Travel Agensi </title>
+    <meta charset = "UTF-8">
+    <title>PergiPergi</title>
+    <object th:include = "fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include = "fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-    <h2>Daftar Seluruh Travel Agensi</h2>
-    <div th:each="agensi: ${listAgensi}">
-        <h3 th:text = "'Id Agensi       : ' + ${agensi.idAgensi}"></h3>
-        <h3 th:text = "'Nama Agensi     : ' + ${agensi.namaAgensi}"></h3>
-        <h3 th:text = "'Alamat Agensi   : ' + ${agensi.alamat}"></h3>
-        <h3 th:text = "'Nomor Telepon   : ' + ${agensi.noTelepon}"></h3>
-        <hr>
+    <nav th:replace= "fragments/fragment :: navbar('agensi')"></nav>
+<div class="container">
+    <div class="card m-4 p-4">
+        <div class="card-body">
+            <div class="justify-content-center">
+                    <h2>List Agensi PergiPergi </h2>
+                    <div th:if = "*{listAgensi.size() != 0}">
+                            <table class = "table">
+                                <thead>
+                                    <tr>
+                                        <th> Nomor </th>
+                                        <th> Id Agensi </th>
+                                        <th> Nama Agensi </th>
+                                        <th> Alamat Agensi </th>
+                                        <th> Nomor Telepon </th>
+                                        <th> Waktu Buka </th>
+                                        <th> Waktu Tutup </th>
+                                        <th> Detail Agensi </th>
+                                        <th> Update Agensi </th>
+                                        <th> Delete Agensi </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each = "agensi, iterationStatus : ${listAgensi}"
+                                        th:style = "${iterationStatus.even} ? 'font-weight: bold;'">
+                                        <td th:text = "${iterationStatus.count}"></td>
+                                        <td th:text = "${agensi.noAgensi}"></td>
+                                        <td th:text = "${agensi.namaAgensi}"></td>
+                                        <td th:text = "${agensi.alamatAgensi}"></td>
+                                        <td th:text = "${agensi.noTeleponAgensi}"></td>
+                                        <td th:text = "${agensi.waktuBuka}"></td>
+                                        <td th:text = "${agensi.waktuTutup}"></td>
+                                        <td>
+                                            <a class="btn btn-sm btn-primary" th:href="@{/agensi/view(noAgensi=${agensi.noAgensi})}">Detail</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-sm btn-primary" th:href="@{/agensi/update/} + ${agensi.noAgensi}">Update</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-sm btn-danger" th:href="@{/agensi/remove/} + ${agensi.noAgensi}">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+    
+                    <div th:unless="*{listAgensi.size() != 0}">
+                        <h2 th:text = "'Tidak ada Agensi yang tersedia.'"></h2>
+                    </div>
+                    <hr>
+                </div>
+                <br>
+                <a class="btn btn-primary" href="/#">Kembali</a>
+            </div>
+        </div>
     </div>
+</div>
+
 </body>
 </html>

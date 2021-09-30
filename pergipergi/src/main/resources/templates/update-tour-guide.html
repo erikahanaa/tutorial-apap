@@ -7,14 +7,15 @@
     <object th:include = "fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<nav th:replace= "fragments/fragment :: navbar('agensi')"></nav>
+    <nav th:replace= "fragments/fragment :: navbar('agensi')"></nav>
 <div class="container">
     <div class="card m-4 p-4">
         <div class="card-body">
             <div class="justify-content-center">
-                <h2 th:text="'Travel Agensi dengan no Agensi ' + ${noAgensi} + ' berhasil diubah.'"></h2>
+                <h2 th:text="'Tour Guide berhasil di-update!'"></h2>
                 <br>
-                <a class="btn btn-primary" th:href="@{/agensi/view(noAgensi=${noAgensi})}">Kembali</a>
+                <a class="btn btn-primary" href="/">Home</a>
+                <!-- <a class="btn btn-primary" th:href="@{/agensi/view(noAgensi=${noAgensi})}">Kembali</a> -->
             </div>
         </div>
     </div>
