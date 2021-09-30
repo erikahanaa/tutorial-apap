@@ -14,7 +14,7 @@ Hari ini saya sudah belajar mengenai web presentation terutama penggunaan thymel
 
 **1. Jelaskan perbedaan th:include dan th:replace!**
 
-Jika kita menggunakan th:include itu artinya fragment akan ditempatkan di dalam tag < div >. Namun, jika kita menggunakan th: replace, maka tag < div > nya itu akan digantikan oleh konten. Berikut merupakan contoh code-nya.
+Jika kita menggunakan th:include itu artinya fragment akan ditempatkan di dalam tag <div>. Namun, jika kita menggunakan th: replace, maka tag <div> nya itu akan digantikan oleh konten. Berikut merupakan contoh code-nya.
 
 ```ruby
 <div th:include="..."> content here </div>
