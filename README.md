@@ -4,6 +4,49 @@
 
 * **Erika Hana Prasanti** - *1906298872* - *APAP B*
 
+## Tutorial 4✨
+
+### What I have learned today✅😊
+
+Hari ini saya sudah belajar mengenai web presentation terutama penggunaan thymeleaf untuk merapihkan tampilan website. Selain itu, saya juga kembali mengulang pelajaran yang sudah didapat di PPW dulu, yaitu mengenai MVC atau Model, View, juga Controller. Lalu, jika dulu di Django untuk Navbar saya biasa pakai base.html, di sini saya belajar penggunaan yang hampir mirip yaitu untuk menyingkat navbar di tiap halaman dengan memanfaatkan fragments. Menurut saya, lab kali ini cukup menyenangkan karena kita mengubah-ubah tampilan website, tetapi saya juga mengalami kesulitan untuk mengerjakan latihan nomor tiga yang cukup challenging!😵😁
+
+### Pertanyaan
+
+**1. Jelaskan perbedaan th:include dan th:replace!**
+
+Jika kita menggunakan th:include itu artinya fragment akan ditempatkan di dalam tag div. Namun, jika kita menggunakan th: replace, maka tag div nya itu akan digantikan oleh konten. Berikut merupakan contoh code-nya.
+
+```ruby
+<div th:include="..."> content here </div>
+
+```
+Pada kode di atas, konten akan masuk ke dalam div.
+```ruby
+<div th:replace="..."> content here </div>
+
+```
+Namun, pada kode yang kedua ini, konten akan menggantikan div.
+
+**2. Jelaskan apa fungsi dari th:object!**
+
+Pada thymeleaf, th:object digunakan untuk menspesifikan objek yang akan di-submit pada form yang akan dikirim. Selain itu, th:object juga disebut sebagai penghubung antara html dan controller karena ia perlu passing nilai dari controller untuk ditaruh di html dan menentukan objek apa saja yang perlu diisi nilainya.
+
+**3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?**
+
+Penggunaan $ pada th:object biasanya lebih umum digunakan dan ini artinya kita akan passing variabel, sedangkan penggunaan * pada th:object artinya kita passing 'selection variable'. Jadi, kalau $ sifatnya mencakup seluruh variabel pada objek, sedangkan * sifatnya hanya evaluasi variabel pada th:object yang sebelumnya sudah di-declare.
+
+### What I did not understand😩
+- [ ] Masih belum memahami secara menyeluruh terkait konsep binding list pada Thymeleaf.
+
+### Referensi
+https://stackoverflow.com/questions/37103958/difference-between-thymeleaf-include-and-replace
+
+https://www.baeldung.com/thymeleaf-in-spring-mvc
+
+https://stackabuse.com/getting-started-with-thymeleaf-in-java-and-spring/
+
+
+
 ## Tutorial 3✨
 
 ### What I have learned today✅😊
@@ -47,7 +90,7 @@ Lalu, perbedaan antara nullable dan penggunaan anotasi @NotNull adalah anotasi @
 
 
 ### What I did not understand😩
-- [ ] Masih belum lancar untuk berpindah-pindah view, model, dan controller untuk mencapai hasil yang diinginkan
+- [v] Masih belum lancar untuk berpindah-pindah view, model, dan controller untuk mencapai hasil yang diinginkan
 
 ### Referensi
 https://javabydeveloper.com/lombok-allargsconstructor-examples/
@@ -68,7 +111,6 @@ https://www.java2novice.com/hibernate/eager-vs-lazy-fetch-type/#:~:text=FetchTyp
 https://stackoverflow.com/questions/13027214/what-is-the-meaning-of-the-cascadetype-all-for-a-manytoone-jpa-association
 
 https://thorben-janssen.com/hibernate-tips-whats-the-difference-between-column-nullable-false-and-notnull/
-
 
 
 

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TourGuideController {
@@ -77,7 +76,7 @@ public class TourGuideController {
         Model model
     ){
         tourGuideService.updateTourGuide(tourGuide);
-        // model.addAttribute("noTourGuide", updatedTourGuide.getTourGuide());
+        
         return "update-tour-guide";
     }
 
@@ -101,6 +100,22 @@ public class TourGuideController {
             return "delete-tour-guide";
         }
         return "delete-guide-fail";
+    }
+
+    @PostMapping("/tour-guide/delete")
+    public String deleteTourGuideSubmit(
+        @ModelAttribute TravelAgensiModel agensi,
+        Model model
+    ){
+        if (travelAgensiService.isClosed(agensi.getWaktuBuka(), agensi.getWaktuTutup())){
+            for (TourGuideModel tourGuide :
+            agensi.getListTourGuide()) 
+        {
+            tourGuideService.deleteTourGuide(tourGuide);
+        }
+        }
+        model.addAttribute("noAgensi", agensi.getNoAgensi());
+        return "delete-tour-guide";
     }
 
 }

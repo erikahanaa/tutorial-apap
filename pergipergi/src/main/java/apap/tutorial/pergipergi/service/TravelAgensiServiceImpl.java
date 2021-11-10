@@ -4,10 +4,13 @@ import org.springframework.stereotype.Service;
 
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
 import apap.tutorial.pergipergi.repository.TravelAgensiDb;
+import apap.tutorial.pergipergi.repository.DestinasiDb;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.transaction.Transactional;
+
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,13 +20,6 @@ public class TravelAgensiServiceImpl implements TravelAgensiService{
     
     @Autowired
     TravelAgensiDb travelAgensiDb;
-
-    // private List<TravelAgensiModel> listAgensi;
-
-    // public TravelAgensiServiceImpl(){
-    //     listAgensi = new ArrayList<>(); 
-    //     // List<TipeData> listAgensi
-    // }
 
     @Override
     public void addAgensi(TravelAgensiModel travelAgensi){
@@ -56,6 +52,15 @@ public class TravelAgensiServiceImpl implements TravelAgensiService{
     @Override
     public void deleteAgensi(TravelAgensiModel travelAgensi){
         travelAgensiDb.delete(travelAgensi);
+    }
+
+    @Override
+    public boolean isClosed(LocalTime waktuBuka, LocalTime waktuuTutup){
+        LocalTime now = LocalTime.now();
+        if (now.isBefore(waktuBuka) || now.isAfter(waktuuTutup)){
+            return true;
+        }
+        return false;
     }
 
 
