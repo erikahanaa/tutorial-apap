@@ -57,6 +57,25 @@
             </form>
         </div>
     </nav>
+    <footer th:fragment="footer(activeTab)">
+        <a>Erika Hana's Webpage. All Rights Deserved. You are in page
+                <li th:if="${activeTab == 'home'}? 'font-weight-bold' : null">
+                    <a>
+                        Home<span class= "sr-only"></span>
+                    </a>
+                </li>
+                <li th:if="${activeTab == 'agensi'}? 'font-weight-bold' : null">
+                    <a>
+                        Agensi<span class= "sr-only"></span>
+                    </a>
+                </li>
+                <li th:if="${activeTab == 'destinasi'}? 'font-weight-bold' : null">
+                    <a>
+                        Destinasi<span class= "sr-only"></span>
+                    </a>
+                </li>
+        </a>
+    </footer>
 </body>
 
 <!-- fragment as base -->
