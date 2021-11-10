@@ -7,5 +7,5 @@ import reactor.core.publisher.Mono;
 
 public interface TourGuideRestService {
     TourGuideModel getTourGuideByNoTourGuide(Long noTourGuide);
-    String getTourGuideAge(Long tourGuideAge);
+    TourGuideModel getTourGuideAge(Long tourGuideAge);
 }

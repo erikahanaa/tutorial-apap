@@ -30,7 +30,7 @@ public class TourGuideRestController {
     }
 
     @GetMapping(value = "/tour/umur/{noTourGuide}")
-    private String getTourGuide(@PathVariable("noTourGuide") Long noTourGuide){
+    private TourGuideModel getTourGuide(@PathVariable("noTourGuide") Long noTourGuide){
         return tourGuideRestService.getTourGuideAge(noTourGuide);
     }
 }

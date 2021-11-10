@@ -38,15 +38,17 @@ public class TourGuideRestServiceImpl implements TourGuideRestService{
     }
 
     @Override
-    public String getTourGuideAge(Long noTourGuide){
+    public TourGuideModel getTourGuideAge(Long noTourGuide){
         Optional<TourGuideModel> tourGuide = tourGuideDb.findByNoTourGuide(noTourGuide);
         // System.out.println(tourGuide.get().getNamaTourGuide());
         // // return this.webClient.get().uri("?name=" + tourGuide.get().getNamaTourGuide()).retrieve().bodyToMono(String.class);
         // String response = this.webClient.get().uri("?name=" + tourGuide.get().getNamaTourGuide()).retrieve().bodyToMono(String.class).block();
         // System.out.println(response);
         // return response;
-        String response = this.webClient.get().uri("/?name=" + tourGuide.get().getNamaTourGuide()).retrieve().bodyToMono(String.class).block();
-        return response;
+        TourGuideDetail response = this.webClient.get().uri("/?name=" + tourGuide.get().getNamaTourGuide()).retrieve().bodyToMono(TourGuideDetail.class).block();
+        tourGuide.get().setUmur(response.getTourGuideAge());
+        tourGuideDb.save(tourGuide.get());
+        return tourGuide.get();
     }
 
     public TourGuideRestServiceImpl(WebClient.Builder webClientBuilder){

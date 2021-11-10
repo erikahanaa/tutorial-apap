@@ -9,6 +9,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
@@ -19,6 +22,7 @@ import java.util.List;
 @Entity
 @Table(name="travel_agensi")
 
+@JsonIgnoreProperties(value={"listTourGuide"},allowSetters = true)
 public class TravelAgensiModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
