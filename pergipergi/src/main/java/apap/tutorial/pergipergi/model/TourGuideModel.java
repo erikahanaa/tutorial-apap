@@ -35,18 +35,14 @@ public class TourGuideModel implements Serializable{
     @Column(name = "jenis_kelamin", nullable = false)
     private Integer jenisKelamin;
 
+    @Column(name = "umur", nullable = false, columnDefinition = "integer default 0")
+    private Integer umur;
+
     // Relasi dengan AgensiModel
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "no_agensi", referencedColumnName = "noAgensi", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private TravelAgensiModel agensi;
 
-    // public void setAgensi(TravelAgensiModel agensi) {
-    //     this.agensi = agensi;
-    // }
-    
-    // public Long getNoTourGuide() {
-    //     return noTourGuide;
-    // }
 }
 
