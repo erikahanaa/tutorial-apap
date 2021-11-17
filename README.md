@@ -4,6 +4,92 @@
 
 * **Erika Hana Prasanti** - *1906298872* - *APAP B*
 
+## Tutorial 6✨
+
+### What I have learned today✅😊
+
+Pada tutorial kali ini, saya sudah belajar lebih lanjut mengenai Web Security dan mempraktikannya secara langsung. Implementasinya berupa penerapan fitur Login juga Logout pada Web, juga membatasi apa saja yang dapat dilihat oleh suatu user berdasarkan role-nya. Secara keseluruhan, menurut saya, materi kali ini sangatlah seru dan tidaklah sesulit tutorial-tutorial sebelumnya. Saya juga merasa implementasi Login Logout di Spring ini lebih mudah daripada pada Django!😆
+
+### Pertanyaan
+
+**1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi??**
+
+Autentikasi merupakan suatu proses identifikasi pengguna, sedangkan autorisasi merupakan proses menentukan apa saja yang dapat dilakukan atau diakses oleh pengguna. Autorisasi sendiri merupakan proses setelah Autentikasi berhasil dilakukan. Pada tutorial ini, saya sudah mengimplementasikan Autentikasi dan Autorisasi lewat kode yang sudah dibuat. Konsep Autentikasi sendiri diimplementasi saat saya membuat kode di WebSecurityConfig.java untuk mengidentifikasi pengguna dan memutuskan apakah pengguna bisa mengakses web atau tidak, sedangkan konsep Autorisasi diimplementasi juga di WebSecurityConfig.java saat memutuskan pengguna dengan role apa saja yang bisa mengakses suatu halaman, seperti Add Destinasi hanya bisa dilakukan oleh Agen atau Add User hanya bisa dilakukan oleh Admin.
+
+Berikut detail implementasi kodenya pada WebSecurityConfig.java:
+- Autentikasi
+```ruby
+@Autowired
+    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception{
+        auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
+    }
+
+```
+- Autorisasi
+```ruby
+    .antMatchers("/user/add").hasAuthority("Admin")
+            .antMatchers("/destinasi/add").hasAuthority("Agen")
+            .antMatchers("/user/updatePassword").hasAnyAuthority("Admin", "User", "Agen")
+
+```
+
+**2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya**
+
+BCryptPasswordEncoder adalah salah satu encoder password yang digunakan dalam modul SpringBoot untuk penyandian kata sandi dan decoding kata sandi atau validasi. BCryptPasswordEncoder sendiri menggunakan algoritma BCrypt. Kemudian, tujuan utama dari BCrypt adalah untuk menyimpan kata sandi di database dengan aman.
+
+Mekanisme kerja BCrypt adalah menghasilkan byte acak dan menggabungkannya dengan kata sandi sebelum hashing, kemudian menciptakan hash unik di setiap kata sandi pengguna. Jika dua pengguna memiliki kata sandi yang sama, mereka tidak akan memiliki hash kata sandi yang sama. Ini untuk mencegah serangan yang dapat membalikkan kata sandi hash menggunakan fungsi hashing umum yang tidak menggunakan metocd ini. Kemudian, algoritma Hashing ini juga merupakan fungsi satu arah. Algoritma ini mengubah sejumlah data menjadi "sidik jari" dengan panjang tetap yang tidak dapat dibalik. Hal ini bagus untuk melindungi kata sandi, tetapi pada saat yang sama algoritma ini juga harus dapat memverifikasi bahwa kata sandi pengguna sudah benar.
+
+Oleh karena itu, general workflow-nya adalah:
+- User membuat akun (termasuk di dalamnya password akun tersebut)
+- Kata sandi ini di-hash dan disimpan dalam database
+- Ketika pengguna mencoba untuk login, hash dari kata sandi yang mereka masukkan diperiksa dengan hash dari kata sandi asli pengguna(diambil dari database)
+- Jika hash cocok, pengguna diberikan akses. Jika tidak, pengguna akan diberitahu bahwa mereka memasukkan kredensial login yang tidak valid.
+- Langkah 3 dan 4 diulangi setiap kali seseorang mencoba masuk ke akunnya.
+
+**3. Apakah penyimpanan password sebaiknya menggunakan encryption atau hashing? Mengapa demikian?**
+
+Menurut saya, penyimpanan password sebaiknya menggunakan hashing daripada enskripsi. Hal ini karena Hashing adalah fungsi satu arah artinya tidak mungkin untuk "mendekripsi" hash dan mendapatkan nilai plain text asli. Hashing sendiri sesuai untuk validasi kata sandi. Bahkan jika attacker mendapatkan kata sandi hash, mereka tidak dapat memasukkannya ke dalam bidang kata sandi aplikasi dan masuk sebagai pengguna. Di sisi lain, enkripsi adalah fungsi dua arah, artinya plain text asli dapat diambil kembali. Enkripsi sesuai untuk menyimpan data seperti nama atau alamat pengguna karena data ini ditampilkan dalam teks biasa pada profil pengguna. Jika data yang tidak terlalu penting seperti alamat atau nama dipakaikan hashing, maka data akan terlihat sangat berantakan. Oleh karena itu, untuk penyimpanan password sebaiknya kita menggunakan hashing saja.
+ 
+**4. Jelaskan secara singkat apa itu UUID beserta penggunaannya!**
+
+UUID (Universally Unique Identifiers) merupakan angka 128 bit yang terdiri dari 16 oktet dan direpresentasikan sebagai 32 karakter dasar-16, yang dapat digunakan untuk mengidentifikasi informasi di seluruh sistem komputer. Spesifikasi ini awalnya dibuat oleh Microsoft dan distandarisasi oleh IETF dan ITU.
+
+UUID umumnya digunakan untuk mengidentifikasi informasi yang perlu unik dalam sistem atau jaringannya. Keunikan dan kemungkinannya yang rendah untuk diulang membuat UUID ini berguna untuk menjadi key dalam database dan identifier untuk perangkat keras fisik dalam suatu organisasi. Salah satu manfaat UUID adalah bahwa mereka tidak perlu dikeluarkan oleh central authority, tetapi dapat dibuat secara independen dan kemudian digunakan di seluruh sistem tertentu tanpa kecurigaan adanya duplikat atau bertabrakan.
+
+Ada empat jenis utama UUID yang digunakan dalam skenario yang sedikit berbeda. Semua UUID memiliki panjang 128 bit, tetapi umumnya direpresentasikan sebagai 32 karakter heksadesimal yang dipisahkan oleh empat tanda hubung.
+
+Versi 1 UUID, yang paling umum, menggabungkan alamat MAC dan stempel waktu untuk menghasilkan keunikan yang memadai. Kemudian, Versi 3 dan Versi 5 UUID, yang paling tidak umum, menggunakan fungsi hash MD5 dan SHA1, ditambah namespace, ditambah nilai data yang sudah unik untuk menghasilkan ID unik. Ini dapat digunakan untuk menghasilkan UUID dari URL misalnya. Terakhir, UUID versi 4, hanyalah 128 bit data acak, dengan sedikit memutar-mutar untuk mengidentifikasi versi dan varian UUID.
+
+**5. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah memiliki class UserRoleServiceImpl.java?**
+
+Interface UserDetailsService digunakan untuk mengambil data terkait pengguna. UserDetailsService ini memiliki satu metode bernama loadUserByUsername() yang dapat diganti untuk menyesuaikan proses menemukan pengguna. Selanjutnya, metode ini digunakan oleh DaoAuthenticationProvider untuk memuat detail tentang pengguna selama proses autentikasi. 
+
+Lebih lanjut, UserDetailsService ini hanya menyimpan informasi pengguna yang kemudian dienkapsulasi menjadi objek autentikasi. Hal ini memungkinkan informasi pengguna yang tidak terkait dengan keamanan (seperti alamat email, nama, dan lainnya) disimpan di lokasi yang nyaman.
+
+### What I did not understand😩
+- [ ] Sejauh ini belum ada kesulitan yang berarti.
+
+### Referensi
+
+https://degananda.com/perbedaan-antara-autentikasi-dan-autorisasi-dalam-dunia-software-engineering/
+
+https://www.yawintutor.com/encode-decode-using-bcryptpasswordencoder-in-spring-boot-security/
+
+https://javascript.plainenglish.io/how-bcryptjs-works-90ef4cb85bf4
+
+https://duo.com/labs/tech-notes/breaking-down-uuids
+
+https://stackoverflow.com/questions/292965/what-is-a-uuid
+
+https://www.baeldung.com/spring-security-authentication-with-a-database
+
+https://howtodoinjava.com/spring-security/custom-userdetailsservice-example-for-spring-3-security/
+
+https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+
+https://stackoverflow.com/questions/326699/difference-between-hashing-a-password-and-encrypting-it
+
+
 ## Tutorial 5✨
 
 ### What I have learned today✅😊
@@ -35,7 +121,7 @@ RestTemplate tidak cocok untuk digunakan dalam aplikasi yang tidak memblokir, se
 - BindingResult merupakan suatu objek Spring yang menyimpan hasil validasi dan binding juga berisi kesalahan yang mungkin terjadi. BindingResult ini harus muncul tepat setelah objek model yang divalidasi. Jika tidak, maka Spring akan gagal memvalidasi objek dan akan throw exception. Dengan kata lain, BindingResult ini merupakan wadah yang berisi informasi terkait kesalahan yang terjadi.
 
 ### What I did not understand😩
-- [ ] Masih kesulitan memahami syntax baru yang belum pernah digunakan sebelumnya.
+- [v] Masih kesulitan memahami syntax baru yang belum pernah digunakan sebelumnya.
 
 ### Referensi
 
