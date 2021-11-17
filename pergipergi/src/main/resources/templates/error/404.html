@@ -7,12 +7,12 @@
     <object th:include = "fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-    <nav th:replace= "fragments/fragment :: navbar"></nav>
+    <nav th:replace= "fragments/fragment :: navbar('Home')"></nav>
     <div class="container-fluid">
+        <br>
         <h2>Halaman tidak ditemukan!</h2>
-        <a th:href="@{/}">Kembali ke Home</a>
+        <br>
+        <a class="btn btn-primary" th:href="@{/}">Kembali</a>
     </div>
 </body>
 </html>
-
-<!-- error 404 -->
