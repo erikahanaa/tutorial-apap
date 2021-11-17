@@ -44,7 +44,7 @@ Oleh karena itu, general workflow-nya adalah:
 - Kata sandi ini di-hash dan disimpan dalam database
 - Ketika pengguna mencoba untuk login, hash dari kata sandi yang mereka masukkan diperiksa dengan hash dari kata sandi asli pengguna(diambil dari database)
 - Jika hash cocok, pengguna diberikan akses. Jika tidak, pengguna akan diberitahu bahwa mereka memasukkan kredensial login yang tidak valid.
-- Langkah 3 dan 4 diulangi setiap kali seseorang mencoba masuk ke akunnya.
+- Langkah 3 dan 4 diulangi setiap kali pengguna mencoba masuk ke akunnya.
 
 **3. Apakah penyimpanan password sebaiknya menggunakan encryption atau hashing? Mengapa demikian?**
 
