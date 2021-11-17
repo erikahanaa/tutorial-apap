@@ -4,6 +4,56 @@
 
 * **Erika Hana Prasanti** - *1906298872* - *APAP B*
 
+## Tutorial 5✨
+
+### What I have learned today✅😊
+
+Pada tutorial kali ini, saya sudah belajar lebih lanjut mengenai Web Service dan mempraktikannya secara langsung. Implementasi Web Service ini ditandai dengan adanya RestService dan RestController. Selain itu, saya juga sudah belajar tentang bagaimana cara menggunakan API dari suatu website. Secara keseluruhan, menurut saya lab kali ini tidak terlalu sulit, tapi karena banyak syntax asing jadi butuh waktu pengerjaan yang lama. Semoga ke depannya saya bisa memahami materi ini secara menyeluruh!😁
+
+### Pertanyaan
+
+**1. Apa itu Postman? Apa kegunaannya?**
+
+Postman adalah suatu aplikasi yang digunakan untuk melakukan pengujian pada API. Jadi, Postman ini merupakan klien HTTP yang menguji permintaan HTTP, dengan menggunakan antarmuka pengguna grafis, dengan tindak lanjut berupa berbagai jenis respons yang perlu divalidasi selanjutnya. Postman memiliki berbagai metode interaksi yang banyak digunakan, seperti GET (untuk mendapatkan informasi), POST (untuk menambah informasi), PUT (untuk mengganti informasi), PATCH (untuk mengganti berbagai informasi spesifik), juga DELETE (untuk menghapus informasi). Bentuk response code dari Postman pun beragam, seperti 100 series untuk temporal responses, 200 series untuk accept request, 300 series untuk response yang terkait URL redirection, 400 series sebagai bad request, dan 500 series sebagai server error. Beberapa keunggulan Postman antara lain memiliki fitur lingkungan pengujian yang berbeda dan membantu developer saat menjalankan tes dengan tampilan yang user friendly.
+
+**2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty**
+
+- @JsonIgnoreProperties digunakan di tingkat kelas untuk menandai properti atau list dari properti yang akan diabaikan. Dalam kata lain, anotasi ini mengabaikan properti JSON saat dibaca. Tujuan dari penggunaaan anotasi ini adalah untuk memudahkan developer untuk melakukan panggilan REST.
+- @JsonProperty digunakan untuk memetakan nama properti dengan kunci JSON selama serialisasi dan deserialisasi. Secara default, jika kita mencoba membuat serialisasi POJO, JSON yang dihasilkan akan memiliki kunci yang dipetakan ke bidang POJO. Nah, @JsonProperty ini digunakan untuk mengganti perilaku tersebut. Anotasi ini juga dapat digunakan selama deserialisasi saat nama properti JSON dan nama bidang objek Java tidak cocok.
+
+**3. Apa kegunaan atribut WebClient?**
+
+WebClient, jika dibandingkan dengan RestTemplate, merupakan sebuah tools yang bersifat non-blocking, reaktif, dan mendukung konkurensi yang lebih tinggi dengan sumber daya perangkat keras yang lebih sedikit. WebClient juga menyediakan API fungsional yang memanfaatkan lambda Java 8 dan mendukung skenario sinkron dan asinkron.
+
+Secara singkat, kegunaan dari atribut WebClient adalah untuk menerima sekaligus mengirim data dari resource URI.
+
+RestTemplate tidak cocok untuk digunakan dalam aplikasi yang tidak memblokir, sehingga aplikasi Spring WebFlux harus selalu menggunakan WebClient. WebClient juga umumnya sering diterapkan di Spring MVC, juga umum digunakan untuk menyusun urutan panggilan jarak jauh yang saling bergantung.
+ 
+**4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?**
+
+- ResponseEntity merupakan representasi dari seluruh respons HTTP (kode status, header, dan isi). Karena hal tersebut, kita dapat menggunakan ResponseEntity untuk menkonfigurasi respons HTTP sepenuhnya. Ketika kita ingin menggunakannya, kita juga perlu mengembalikan ResponseEntity ini dari titik akhir dan sisanya akan ditangani oleh Spring.
+- BindingResult merupakan suatu objek Spring yang menyimpan hasil validasi dan binding juga berisi kesalahan yang mungkin terjadi. BindingResult ini harus muncul tepat setelah objek model yang divalidasi. Jika tidak, maka Spring akan gagal memvalidasi objek dan akan throw exception. Dengan kata lain, BindingResult ini merupakan wadah yang berisi informasi terkait kesalahan yang terjadi.
+
+### What I did not understand😩
+- [ ] Masih kesulitan memahami syntax baru yang belum pernah digunakan sebelumnya.
+
+### Referensi
+
+https://www.encora.com/insights/what-is-postman-api-test
+
+https://www.tutorialspoint.com/jackson_annotations/jackson_annotations_jsonignoreproperties.htm#:~:text=%40JsonIgnoreProperties%20is%20used%20at%20class,of%20properties%20to%20be%20ignored.
+
+https://fasterxml.github.io/jackson-annotations/javadoc/2.7/com/fasterxml/jackson/annotation/JsonIgnoreProperties.html
+
+https://dzone.com/articles/jackson-annotations-for-json-part-4-general#:~:text=The%20%40JsonProperty%20annotation%20is%20used,keys%20during%20serialization%20and%20deserialization.&text=You%20can%20also%20use%20this,Java%20object%20do%20not%20match.
+
+https://docs.spring.io/spring-framework/docs/5.0.x/spring-framework-reference/web-reactive.html
+
+https://www.baeldung.com/spring-response-entity
+
+https://stackoverflow.com/questions/10413886/what-is-the-use-of-bindingresult-interface-in-spring-mvc/36715053#:~:text=%5B%20BindingResult%20%5D%20is%20Spring's%20object%20that.object%20and%20throw%20an%20exception. 
+
+
 ## Tutorial 4✨
 
 ### What I have learned today✅😊
@@ -36,7 +86,7 @@ Pada thymeleaf, th:object digunakan untuk menspesifikan objek yang akan di-submi
 Penggunaan $ pada th:object biasanya lebih umum digunakan dan ini artinya kita akan passing variabel, sedangkan penggunaan * pada th:object artinya kita passing 'selection variable'. Jadi, kalau $ sifatnya mencakup seluruh variabel pada objek, sedangkan * sifatnya hanya evaluasi variabel pada th:object yang sebelumnya sudah di-declare.
 
 ### What I did not understand😩
-- [ ] Masih belum memahami secara menyeluruh terkait konsep binding list pada Thymeleaf.
+- [v] Masih belum memahami secara menyeluruh terkait konsep binding list pada Thymeleaf.
 
 ### Referensi
 https://stackoverflow.com/questions/37103958/difference-between-thymeleaf-include-and-replace
