@@ -53,7 +53,7 @@ Pada soal latihan nomor tiga, saya diminta untuk mengeluarkan alert pesan ketika
 Dari gambar di atas, saya memodifikasi sedikit kode pada bagian fungsi addItemToCart. Di sini, saya membuat condition dengan menggunakan if else, di mana ketika balance sekarang dikurangi harga barang yang mau ditambah ke shopping cart, maka localhost akan mengeluarkan pesan bahwa saldo tidak cukup.
 
 Berikut merupakan contoh ketika saya ingin memasukkan berbagai barang tetapi saldonya tidak cukup.
-![image](https://ibb.co/fvQsJ3F/nomor3.jpg)
+![image](https://i.ibb.co/pynSqHw/nomor3.jpg)
 
 **2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?**
 
