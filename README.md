@@ -32,6 +32,7 @@ Lalu, berikut merupakan contoh ketika saya menghapus item yang sudah saya tambah
 ![image](https://i.ibb.co/x1fpgMP/nomorsatuafter.jpg)
 
 **Soal Latihan 2**
+
 Pada soal latihan nomor dua, saya diminta untuk membuat balance berkurang sesuai dengan harga item saat memasukkan item ke dalam keranjang belanja. Kemudian, jika item dihapus dari My Cart, maka saldo bertambah kembali sesuai dengan harga item. Berikut merupakan code-nya.
 
 ![image](https://i.ibb.co/jH5bPKP/no2add.jpg)
@@ -40,15 +41,19 @@ Pada soal latihan nomor dua, saya diminta untuk membuat balance berkurang sesuai
 Kedua kode di atas digunakan untuk melakukan set balance. Kode pertama saya letakkan pada function addItemsToCart sehingga balance sekarang adalah balance awal dikurang harga item tersebut, sedangkan kode kedua diletakkan pada function deleteItemsFromCart sehingga balance akhirnya merupakan balance awal ditambahkan dengan harga item yang dikurangi dari cart.
 
 Berikut merupakan contoh ketika saya belum memasukkan apa-apa ke keranjang. Dapat dilihat balance-nya masih balance awal atau 120.
+
 ![image](https://i.ibb.co/x1fpgMP/nomorsatuafter.jpg)
 
 Selanjutnya, berikut merupakan balance ketika saya menambahkan beberapa barang.
+
 ![image](https://i.ibb.co/TTvLfcV/nomorduabefore.jpg)
 
 Dan berikut merupakan balance ketika saya mengeluarkan beberapa barang dari cart.
+
 ![image](https://i.ibb.co/KVX5Sdb/nomorduaafter.jpg)
 
 **Soal Latihan 3**
+
 Pada soal latihan nomor tiga, saya diminta untuk mengeluarkan alert pesan ketika balance kurang untuk memasukkan item lain ke dalam shopping cart. Berikut merupakan code-nya.
 
 ![image](https://i.ibb.co/bBVxHxk/nomor3code.jpg)
