@@ -17,38 +17,38 @@ Pada tutorial kali ini, saya sudah belajar dan hands on langsung mengenai materi
 **Soal Latihan 1**
 Pada soal latihan nomor satu, saya diminta untuk membuat button delete pada My Cart bisa berfungsi. Jadi, saat button tersebut diklik, item akan terhapus dari My Cart dan tombol keranjang pada item tersebut di halaman List Item akan muncul kembali. Berikut merupakan code-nya.
 
-![image](https://ibb.co/3SnxmBN/handledelete.jpg)
-![image](https://ibb.co/5WNYb1N/handle22.jpg)
+![image](https://i.ibb.co/3SnxmBN/handledelete.jpg)
+![image](https://i.ibb.co/5WNYb1N/handle22.jpg)
 
 Dari kode, dapat dilihat bahwa saya membuat suatu function handleDeleteItem untuk memproses button delete tersebut. Pertama-tama, saya menginisiasi konstanta newItems, newItem, juga targetInd untuk melacak indeks item yang dimaksud dengan menggunakan cara yang sama seperti yang digunakan saat akan add item to cart. Kemudian, ketika item target sudah ditemukan, maka saya menggunakan method splice untuk menghapus item tersebut dari cart. Setelah itu, saya menuliskan beberapa baris kode, seperti newItems.inCart = false yang menandakan bahwa item tidak berada di cart dan melakukan set untuk meng-update item yang berada di cart sekarang.
 
 Berikut merupakan contoh saya menambahkan beberapa item:
-![image](https://ibb.co/Y74RxyN/nomorsatu.jpg)
+![image](https://i.ibb.co/Y74RxyN/nomorsatu.jpg)
 
 Lalu, berikut merupakan contoh ketika saya menghapus item yang sudah saya tambahkan tadi dengan menekan button delete:
-![image](https://ibb.co/Pc97W53/nomorsatuafter.jpg)
+![image](https://i.ibb.co/Pc97W53/nomorsatuafter.jpg)
 
 **Soal Latihan 2**
 Pada soal latihan nomor dua, saya diminta untuk membuat balance berkurang sesuai dengan harga item saat memasukkan item ke dalam keranjang belanja. Kemudian, jika item dihapus dari My Cart, maka saldo bertambah kembali sesuai dengan harga item. Berikut merupakan code-nya.
 
-![image](https://ibb.co/rvtFRPR/nomor2add.jpg)
-![image](https://ibb.co/JtMcGc5/nomor2delete.jpg)
+![image](https://i.ibb.co/rvtFRPR/nomor2add.jpg)
+![image](https://i.ibb.co/JtMcGc5/nomor2delete.jpg)
 
 Kedua kode di atas digunakan untuk melakukan set balance. Kode pertama saya letakkan pada function addItemsToCart sehingga balance sekarang adalah balance awal dikurang harga item tersebut, sedangkan kode kedua diletakkan pada function deleteItemsFromCart sehingga balance akhirnya merupakan balance awal ditambahkan dengan harga item yang dikurangi dari cart.
 
 Berikut merupakan contoh ketika saya belum memasukkan apa-apa ke keranjang. Dapat dilihat balance-nya masih balance awal atau 120.
-![image](https://ibb.co/Pc97W53/nomorsatuafter.jpg)
+![image](https://i.ibb.co/Pc97W53/nomorsatuafter.jpg)
 
 Selanjutnya, berikut merupakan balance ketika saya menambahkan beberapa barang.
-![image](https://ibb.co/mBD8jJL/nomorduabefore.jpg)
+![image](https://i.ibb.co/mBD8jJL/nomorduabefore.jpg)
 
 Dan berikut merupakan balance ketika saya mengeluarkan beberapa barang dari cart.
-![image](https://ibb.co/JrKcgVm/nomorduaafter.jpg)
+![image](https://i.ibb.co/JrKcgVm/nomorduaafter.jpg)
 
 **Soal Latihan 3**
 Pada soal latihan nomor tiga, saya diminta untuk mengeluarkan alert pesan ketika balance kurang untuk memasukkan item lain ke dalam shopping cart. Berikut merupakan code-nya.
 
-![image](https://ibb.co/Sng2Q2z/nomor3code.jpg)
+![image](https://i.ibb.co/Sng2Q2z/nomor3code.jpg)
 
 Dari gambar di atas, saya memodifikasi sedikit kode pada bagian fungsi addItemToCart. Di sini, saya membuat condition dengan menggunakan if else, di mana ketika balance sekarang dikurangi harga barang yang mau ditambah ke shopping cart, maka localhost akan mengeluarkan pesan bahwa saldo tidak cukup.
 
