@@ -15,6 +15,7 @@ Pada tutorial kali ini, saya sudah belajar dan hands on langsung mengenai materi
 **1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan!**
 
 **Soal Latihan 1**
+
 Pada soal latihan nomor satu, saya diminta untuk membuat button delete pada My Cart bisa berfungsi. Jadi, saat button tersebut diklik, item akan terhapus dari My Cart dan tombol keranjang pada item tersebut di halaman List Item akan muncul kembali. Berikut merupakan code-nya.
 
 ![image](https://i.ibb.co/XFqnxSs/handledelete.jpg)
@@ -23,10 +24,12 @@ Pada soal latihan nomor satu, saya diminta untuk membuat button delete pada My C
 Dari kode, dapat dilihat bahwa saya membuat suatu function handleDeleteItem untuk memproses button delete tersebut. Pertama-tama, saya menginisiasi konstanta newItems, newItem, juga targetInd untuk melacak indeks item yang dimaksud dengan menggunakan cara yang sama seperti yang digunakan saat akan add item to cart. Kemudian, ketika item target sudah ditemukan, maka saya menggunakan method splice untuk menghapus item tersebut dari cart. Setelah itu, saya menuliskan beberapa baris kode, seperti newItems.inCart = false yang menandakan bahwa item tidak berada di cart dan melakukan set untuk meng-update item yang berada di cart sekarang.
 
 Berikut merupakan contoh saya menambahkan beberapa item:
-![image](https://i.ibb.co/Y74RxyN/nomorsatu.jpg)
+
+![image](https://i.ibb.co/Kjc0JL5/nomorsatu.jpg)
 
 Lalu, berikut merupakan contoh ketika saya menghapus item yang sudah saya tambahkan tadi dengan menekan button delete:
-![image](https://i.ibb.co/Pc97W53/nomorsatuafter.jpg)
+
+![image](https://i.ibb.co/x1fpgMP/nomorsatuafter.jpg)
 
 **Soal Latihan 2**
 Pada soal latihan nomor dua, saya diminta untuk membuat balance berkurang sesuai dengan harga item saat memasukkan item ke dalam keranjang belanja. Kemudian, jika item dihapus dari My Cart, maka saldo bertambah kembali sesuai dengan harga item. Berikut merupakan code-nya.
