@@ -17,8 +17,8 @@ Pada tutorial kali ini, saya sudah belajar dan hands on langsung mengenai materi
 **Soal Latihan 1**
 Pada soal latihan nomor satu, saya diminta untuk membuat button delete pada My Cart bisa berfungsi. Jadi, saat button tersebut diklik, item akan terhapus dari My Cart dan tombol keranjang pada item tersebut di halaman List Item akan muncul kembali. Berikut merupakan code-nya.
 
-![image](https://i.ibb.co/3SnxmBN/handledelete.jpg)
-![image](https://i.ibb.co/5WNYb1N/handle22.jpg)
+![image](https://i.ibb.co/XFqnxSs/handledelete.jpg)
+![image](https://i.ibb.co/JRfxDcf/handle22.jpg)
 
 Dari kode, dapat dilihat bahwa saya membuat suatu function handleDeleteItem untuk memproses button delete tersebut. Pertama-tama, saya menginisiasi konstanta newItems, newItem, juga targetInd untuk melacak indeks item yang dimaksud dengan menggunakan cara yang sama seperti yang digunakan saat akan add item to cart. Kemudian, ketika item target sudah ditemukan, maka saya menggunakan method splice untuk menghapus item tersebut dari cart. Setelah itu, saya menuliskan beberapa baris kode, seperti newItems.inCart = false yang menandakan bahwa item tidak berada di cart dan melakukan set untuk meng-update item yang berada di cart sekarang.
 
