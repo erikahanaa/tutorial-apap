@@ -4,6 +4,109 @@
 
 * **Erika Hana Prasanti** - *1906298872* - *APAP B*
 
+## Tutorial 7✨
+
+### What I have learned today✅😊
+
+Pada tutorial kali ini, saya sudah belajar dan hands on langsung mengenai materi Intro to ReactJS. Karena masih basic, jadi di sini, saya baru bisa menambahkan dan menghapus item dari cart secara sederhana, beserta meng-update balance ketika item ditambahkan atau dikurangi. Secara keseluruhan, menurut saya, materi kali ini sangat seru dan tidak sesulit tutorial-tutorial sebelumnya. Kemudian, karena kita bisa langsung melihat hasilnya, jadi pengerjaan lab ini terasa lebih menyenangkan!😆
+
+### Pertanyaan
+
+**1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan!**
+
+**Soal Latihan 1**
+
+Pada soal latihan nomor satu, saya diminta untuk membuat button delete pada My Cart bisa berfungsi. Jadi, saat button tersebut diklik, item akan terhapus dari My Cart dan tombol keranjang pada item tersebut di halaman List Item akan muncul kembali. Berikut merupakan code-nya.
+
+![image](https://i.ibb.co/XFqnxSs/handledelete.jpg)
+![image](https://i.ibb.co/JRfxDcf/handle22.jpg)
+
+Dari kode, dapat dilihat bahwa saya membuat suatu function handleDeleteItem untuk memproses button delete tersebut. Pertama-tama, saya menginisiasi konstanta newItems, newItem, juga targetInd untuk melacak indeks item yang dimaksud dengan menggunakan cara yang sama seperti yang digunakan saat akan add item to cart. Kemudian, ketika item target sudah ditemukan, maka saya menggunakan method splice untuk menghapus item tersebut dari cart. Setelah itu, saya menuliskan beberapa baris kode, seperti newItems.inCart = false yang menandakan bahwa item tidak berada di cart dan melakukan set untuk meng-update item yang berada di cart sekarang.
+
+Berikut merupakan contoh saya menambahkan beberapa item:
+
+![image](https://i.ibb.co/Kjc0JL5/nomorsatu.jpg)
+
+Lalu, berikut merupakan contoh ketika saya menghapus item yang sudah saya tambahkan tadi dengan menekan button delete:
+
+![image](https://i.ibb.co/x1fpgMP/nomorsatuafter.jpg)
+
+**Soal Latihan 2**
+
+Pada soal latihan nomor dua, saya diminta untuk membuat balance berkurang sesuai dengan harga item saat memasukkan item ke dalam keranjang belanja. Kemudian, jika item dihapus dari My Cart, maka saldo bertambah kembali sesuai dengan harga item. Berikut merupakan code-nya.
+
+![image](https://i.ibb.co/jH5bPKP/no2add.jpg)
+![image](https://i.ibb.co/mTMR2R6/no2delete.jpg)
+
+Kedua kode di atas digunakan untuk melakukan set balance. Kode pertama saya letakkan pada function addItemsToCart sehingga balance sekarang adalah balance awal dikurang harga item tersebut, sedangkan kode kedua diletakkan pada function deleteItemsFromCart sehingga balance akhirnya merupakan balance awal ditambahkan dengan harga item yang dikurangi dari cart.
+
+Berikut merupakan contoh ketika saya belum memasukkan apa-apa ke keranjang. Dapat dilihat balance-nya masih balance awal atau 120.
+
+![image](https://i.ibb.co/x1fpgMP/nomorsatuafter.jpg)
+
+Selanjutnya, berikut merupakan balance ketika saya menambahkan beberapa barang.
+
+![image](https://i.ibb.co/TTvLfcV/nomorduabefore.jpg)
+
+Dan berikut merupakan balance ketika saya mengeluarkan beberapa barang dari cart.
+
+![image](https://i.ibb.co/KVX5Sdb/nomorduaafter.jpg)
+
+**Soal Latihan 3**
+
+Pada soal latihan nomor tiga, saya diminta untuk mengeluarkan alert pesan ketika balance kurang untuk memasukkan item lain ke dalam shopping cart. Berikut merupakan code-nya.
+
+![image](https://i.ibb.co/bBVxHxk/nomor3code.jpg)
+
+Dari gambar di atas, saya memodifikasi sedikit kode pada bagian fungsi addItemToCart. Di sini, saya membuat condition dengan menggunakan if else, di mana ketika balance sekarang dikurangi harga barang yang mau ditambah ke shopping cart, maka localhost akan mengeluarkan pesan bahwa saldo tidak cukup.
+
+Berikut merupakan contoh ketika saya ingin memasukkan berbagai barang tetapi saldonya tidak cukup.
+![image](https://i.ibb.co/pynSqHw/nomor3.jpg)
+
+**2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?**
+
+State ialah data yang tersimpan dalam suatu component. Kemudian, dapat terlihat bahwa state ini bersifat private dan hanya relevan terhadap component itu sendiri. State juga dapat menyimpan dan mengubah datanya sendiri. Di sisi lain, props merupakan data yang value-nya didapat dari component lain. Maka dari itu, props umumnya digunakan untuk komunikasi data component dari parent komponent ke child component. Lalu, jika dari implementasi pada Tutorial kali ini, dapat dilihat bahwa class component bisa memiliki baik state maupun props, sedangkan functional component hanya memiliki props saja. Terakhir, sebagai kesimpulan, state lebih cocok digunakan untuk mengolah data yang bersifat internal di dalam component itu sendiri, sedangkan props cocok digunakan ketika ada passing data dengan component lain.
+
+**3. Menurut kamu, apakah sebaiknya kita menggunakan component (e.g. List, Item) dalam React? sebutkan alasannya?**
+
+Menurut saya, kita sebaiknya menggunakan component di dalam react karena hal ini membawa beberapa keuntungan. Pertama-tama, dengan menggunakan components, kita dapat melakukan re-use code. Kode yang bisa di-re-use ini membantu membuat aplikasi kita ebih mudah dikembangkan dan lebih mudah untuk di-maintenance. Dengan adanya re-use kode, tampilan dan nuansa pada proyek yang kita bangun juga lebih konsisten. Jika kita melihat tutorial, komponen List dan Item ini bisa dipanggil berkali-kali. Selain itu, React.js juga memungkinkan kita untuk melakukan update individual pada masing-masing komponen tanpa perlu memuat ulang keseluruhan halaman. Hal ini tentunya sangat membantu kita dan mengurangi load page dari sisi user.
+ 
+**4. Apa perbedaan class component dan functional component?**
+
+Berikut merupakan beberapa perbedaan antara class component dan functional component dalam React:
+
+- Functional component merupakan beberapa komponen umum yang terdiri dari fungsi JavaScript yang menerima props sebagai argumen dan mengembalikan elemen React, sedangkan class component ini perlu di-extend dari react karena ia berfungsi untuk membuat fungsi render yang mengembalikan elemen React.
+- Tidak ada fungsi render pada functional component, sedangkan terdapat suatu fungsi render pada class component yang me-return halaman HTML.
+- Pada functional component, kita juga tidak perlu menggunakan konstruktor, tetapi kita perlu untuk menggunakan konstruktor pada class component.
+- Functional component biasa disebut sebagai stateless component karena mereka hanya menerima data dan menampilkannya dalam beberapa bentuk, yang terutama bertanggung jawab untuk melakukan render UI, sedangkan class component biasa disebut sebagai statefull component karena mereka mengimplementasikan logic dan state.
+- React Lifecycle Method tidak dapat digunakan dalam functional component, tetapi dapat digunakan pada class component. Tetapi, penggunaan React Lifecyle Method pada functional class dapat diakali dengan menggunakan ReactHook useEffects().
+
+**5. Dalam react, apakah perbedaan component dan element?**
+
+React element merupakan suatu objek sederhana yang menggambarkan DOM node dan atribut atau propertinya. React element ini juga merupakan suatu objek deskripsi yang tidak dapat diubah dan kita tidak dapat menerapkan metode apa pun di atasnya. Intinya, react element ini adalah deskripsi tentang apa yang ingin kita tampilkan di layar dan bersifat deklaratif. Di sisi lain, react component singkatnya adalah kumpulan elemen react. Lebih lanjut, element react ini merupakan suatu fungsi atau class yang menerima input dan mengembalikan elemen React. React component ini harus menyimpan referensi ke DOM node dan ke instance child component.
+
+### What I did not understand😩
+- [ ] Masih ada beberapa syntax yang asing, sehingga perlu belajar terlebih dahulu.
+
+### Referensi
+
+https://www.mahirkoding.com/tutorial-react-perbedaan-state-dan-props/
+
+https://medium.com/coderupa/react-prop-state-apa-bedanya-7ee61df8257f
+
+https://www.telerik.com/blogs/5-benefits-of-reactjs-to-brighten-a-cloudy-day#:~:text=Each%20component%20has%20its%20own,feel%20across%20the%20whole%20project.
+
+https://www.uxpin.com/studio/blog/reactjs-benefits-and-components/
+
+https://www.geeksforgeeks.org/differences-between-functional-components-and-class-components-in-react/
+
+https://medium.com/devsaurus-class/react-class-component-vs-function-component-10937b8fc513
+
+https://stackoverflow.com/questions/30971395/difference-between-react-component-and-react-element
+
+https://dev.to/laurenmbeatty/react-deep-dive-element-vs-component-3ep1
+
+
 ## Tutorial 6✨
 
 ### What I have learned today✅😊
@@ -67,7 +170,7 @@ Interface UserDetailsService digunakan untuk mengambil data terkait pengguna. Us
 Lebih lanjut, UserDetailsService ini hanya menyimpan informasi pengguna yang kemudian dienkapsulasi menjadi objek autentikasi. Hal ini memungkinkan informasi pengguna yang tidak terkait dengan keamanan (seperti alamat email, nama, dan lainnya) disimpan di lokasi yang nyaman.
 
 ### What I did not understand😩
-- [ ] Sejauh ini belum ada kesulitan yang berarti.
+- [v] Sejauh ini belum ada kesulitan yang berarti.
 
 ### Referensi
 
