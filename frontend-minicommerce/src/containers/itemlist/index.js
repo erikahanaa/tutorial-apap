@@ -170,9 +170,9 @@ class ItemList extends Component {
             const targetInd = this.state.cartItems.findIndex(
                 (it) => it.item.id === item.id
             );
-            if (targetInd < 0) {
+            if ((targetInd) < 0 && (parseInt(this.state.quantityCart) > 0)) {
                 if(parseInt(item.quantity) < parseInt(this.state.quantityCart)){
-                    alert("Stock isn't sufficient!")
+                    alert("Stock isn't sufficient!");
                 }
                 else{
                     await APIConfig.post("/cart", data);
@@ -184,7 +184,7 @@ class ItemList extends Component {
                 }
             }
             else{
-                if((parseInt(this.state.quantityCart) + parseInt(this.state.cartItems[targetInd].quantity)) <= parseInt(item.quantity)){
+                if((parseInt(this.state.quantityCart) > 0) && (parseInt(this.state.quantityCart) + parseInt(this.state.cartItems[targetInd].quantity)) <= parseInt(item.quantity)){
                     await APIConfig.post("/cart", data);
                     this.setState({
                         quantityCart: 0
@@ -193,7 +193,7 @@ class ItemList extends Component {
                     this.loadDataCart();
                 }
                 else{
-                    alert("Stock isn't sufficient!")
+                    alert("Stock isn't sufficient!");
                 }
             }
         } catch (error) {
