@@ -67,7 +67,15 @@ class ItemList extends Component {
     }
     handleCancel(event) {
         event.preventDefault();
-        this.setState({ isCreate:false, isEdit: false });
+        this.setState({ 
+            isCreate:false, 
+            isEdit: false,
+            title: "",
+            price: 0,
+            description: "",
+            category: "",
+            quantity: 0
+        });
     }
     handleChangeField(event) {
         const { name, value } = event.target;
@@ -208,6 +216,7 @@ class ItemList extends Component {
             this.setState({
                 cartItems: [],
             });
+            alert("Checkout berhasil!");
             this.loadData();
             this.loadDataCart();
         } catch (error) {
