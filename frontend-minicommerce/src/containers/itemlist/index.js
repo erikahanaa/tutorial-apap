@@ -9,6 +9,7 @@ import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Fab } from "@material-ui/core";
 import ViewStreamIcon from '@mui/icons-material/ViewStream';
+import Cart from "../../components/cart";
 
 class ItemList extends Component {
     constructor(props) {
@@ -25,7 +26,8 @@ class ItemList extends Component {
         price: 0,
         description: "",
         category: "",
-        quantity: 0
+        quantity: 0,
+        quantityCart: 0
     };
     this.handleClickLoading = this.handleClickLoading.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
@@ -33,10 +35,14 @@ class ItemList extends Component {
     this.handleChangeField = this.handleChangeField.bind(this);
     this.handleSubmitItem = this.handleSubmitItem.bind(this);
     this.handleSubmitEditItem = this.handleSubmitEditItem.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
     this.handleSearchItem = this.handleSearchItem.bind(this);
+    this.handleAddItemToCart = this.handleAddItemToCart.bind(this);
+    this.handleCheckout = this.handleCheckout.bind(this);
     }
     componentDidMount() {
         this.loadData();
+        this.loadDataCart();
     }
     async loadData() {
         try {
@@ -141,60 +147,111 @@ class ItemList extends Component {
             console.log(error);
         }
     }
-    handleToggle = () => {
+    handleToggle(){
         const cartHidden = this.state.cartHidden;
         this.setState({ cartHidden: !cartHidden });
     }
-    async handleAddItemToCart(event) {
+    async loadDataCart() {
+        try {
+          const { data } = await APIConfig.get("/cart");
+          this.setState({ cartItems: data.result });
+        } catch (error) {
+          alert("Oops terjadi masalah pada server");
+          console.log(error);
+        }
+    }
+    async handleAddItemToCart(event, item) {
         event.preventDefault();
         try {
             const data = {
-                id: this.state.id,
-                quantity: this.state.quantity
+                idItem: item.id,
+                quantity: this.state.quantityCart
             };
-        await APIConfig.post("/cart", data);
+            const targetInd = this.state.cartItems.findIndex(
+                (it) => it.item.id === item.id
+            );
+            if (targetInd < 0) {
+                if(parseInt(item.quantity) < parseInt(this.state.quantityCart)){
+                    alert("Stock isn't sufficient!")
+                }
+                else{
+                    await APIConfig.post("/cart", data);
+                    this.setState({
+                        quantityCart: 0
+                    })
+                    this.loadData();
+                    this.loadDataCart();
+                }
+            }
+            else{
+                if((parseInt(this.state.quantityCart) + parseInt(this.state.cartItems[targetInd].quantity)) <= parseInt(item.quantity)){
+                    await APIConfig.post("/cart", data);
+                    this.setState({
+                        quantityCart: 0
+                    })
+                    this.loadData();
+                    this.loadDataCart();
+                }
+                else{
+                    alert("Stock isn't sufficient!")
+                }
+            }
         } catch (error) {
             alert("Oops terjadi masalah pada server");
             console.log(error);
         }
-    };
+    }
+    async handleCheckout(event) {
+        event.preventDefault();
+        try {
+            await APIConfig.get("/cart/checkout");
+            this.setState({
+                cartItems: [],
+            });
+            this.loadData();
+            this.loadDataCart();
+        } catch (error) {
+            alert("Oops terjadi masalah pada server");
+            console.log(error);
+        }
+        this.handleCancel(event);
+    }
     render() {
         console.log("render()");
         return (
-            <div className={classes.itemList}>
-                <Search
-                    action={this.handleChangeField}
-                    submit={this.handleSearchItem}
-                    namaItem={this.state.title}
-                >
-                </Search>
-                <h1 className={classes.title}>All Items</h1>
-                <div style = {{position: "fixed", top: 25, right: 25}}>
-                    <Fab variant = "extended" onClick = {this.handleToggle}>
-                        {this.state.cartHidden ?
+          <div className = {classes.itemList}>
+            <h1 className = {classes.title}>All Items</h1>
+            <div style = {{ position: "fixed", top: 25, right: 25}}>
+                <Fab variant = "extended" onClick = {this.handleToggle}>
+                    {this.state.cartHidden ?
                         <Badge color = "secondary" badgeContent = {this.state.cartItems.length}>
                             <ShoppingCartIcon />
                         </Badge>
                         : <ViewStreamIcon/>}
-                    </Fab>
-                </div>
-                <Button action={this.handleAddItem}>
-                    Add Item
-                </Button>
+                </Fab>
+            </div>
+            {this.state.cartHidden ?
+            <div>
+                <Search
+                    action = {this.handleChangeField}
+                    submit = {this.handleSearchItem}
+                    namaItem = {this.state.title}
+                >
+                </Search>
+                <Button action = {this.handleAddItem}>Add Item</Button>
                 <div>
                     {this.state.items.map((item) => (
                         <Item
-                            key={item.id}
-                            id={item.id}
-                            title={item.title}
-                            price={item.price}
-                            description={item.description}
-                            category={item.category}
-                            quantity={item.quantity}
-                            handleEdit = {() => this.handleEditItem(item)}
-                            action = {this.handleChangeField}
-                            handleAddToCart = {this.handleAddItemToCart}
-                            cartQuantity = {this.cartQuantity}
+                        key = {item.id}
+                        id = {item.id}
+                        title = {item.title}
+                        price = {item.price}
+                        description = {item.description}
+                        category = {item.category}
+                        quantity = {item.quantity}
+                        handleEdit = {() => this.handleEditItem(item)}
+                        action = {this.handleChangeField}
+                        handleAddToCart = {(event) => this.handleAddItemToCart(event, item)}
                         />
                     ))}
                 </div>
@@ -202,62 +259,76 @@ class ItemList extends Component {
                     show = {this.state.isCreate || this.state.isEdit}
                     handleCloseModal = {this.handleCancel}
                     modalTitle = {this.state.isCreate
-                    ? "Add Item"
-                    :`Edit Item ID ${this.state.id}`}
+                        ? "Add Item"
+                        : `Edit Item ID ${this.state.id}`}
                 >
-                    <form>
-                        <input
-                            className = {classes.textField}
-                            type = "text"
-                            placeholder = "Nama Item"
-                            name = "title"
-                            value = {this.state.title}
-                            onChange = {this.handleChangeField}
-                        />
-                        <input 
-                            className = {classes.textField}
-                            type = "number"
-                            placeholder = "Harga"
-                            name = "price"
-                            value = {this.state.price}
-                            onChange = {this.handleChangeField}
-                        />
-                        <textarea 
-                            className = {classes.textField}
-                            placeholder = "Deskripsi"
-                            name = "description"
-                            rows = "4"
-                            value = {this.state.description}
-                            onChange = {this.handleChangeField}
-                        />
-                        <input
-                            className = {classes.textField}
-                            type = "text"
-                            placeholder = "Kategori"
-                            name = "category"
-                            value = {this.state.category}
-                            onChange = {this.handleChangeField}
-                        />
-                        <input
-                            className = {classes.textField}
-                            type = "number"
-                            placeholder = "qty"
-                            name = "quantity"
-                            value = {this.state.quantity}
-                            onChange = {this.handleChangeField}
-                        />
-                        <Button action = {this.state.isCreate
-                            ? this.handleSubmitItem
-                            : this.handleSubmitEditItem}
-                        >
-                            Create
-                        </Button>
-                        <Button action = {this.handleCancel}>
-                            Cancel
-                        </Button>
-                    </form>
-                </Modal>
-            </div>
+                <form>
+                    <input
+                        className = {classes.textField}
+                        type = "text"
+                        placeholder = "Nama Item"
+                        name = "title"
+                        value = {this.state.title}
+                        onChange = {this.handleChangeField}
+                    />
+                    <input 
+                        className = {classes.textField}
+                        type = "number"
+                        placeholder = "Harga"
+                        name = "price"
+                        value = {this.state.price}
+                        onChange = {this.handleChangeField}
+                    />
+                    <textarea 
+                        className = {classes.textField}
+                        placeholder = "Deskripsi"
+                        name = "description"
+                        rows = "4"
+                        value = {this.state.description}
+                        onChange = {this.handleChangeField}
+                    />
+                    <input
+                        className = {classes.textField}
+                        type = "text"
+                        placeholder = "Kategori"
+                        name = "category"
+                        value = {this.state.category}
+                        onChange = {this.handleChangeField}
+                    />
+                    <input
+                        className = {classes.textField}
+                        type = "number"
+                        placeholder = "Quantity"
+                        name = "quantity"
+                        value = {this.state.quantity}
+                        onChange = {this.handleChangeField}
+                    />
+                    <Button action = {this.state.isCreate
+                        ? this.handleSubmitItem
+                        : this.handleSubmitEditItem}
+                    >
+                        Create
+                    </Button>
+                    <Button action = {this.handleCancel}>
+                        Cancel
+                    </Button>
+                </form>
+            </Modal>
+            </div>:
+            <div>
+                {this.state.cartItems.map((cart) => (
+                    <Cart
+                        key = {cart.id}
+                        id = {cart.id}
+                        quantity = {cart.quantity}
+                        item = {cart.item}
+                    />
+                ))}
+                {this.state.cartItems.length != 0 ?
+                    <Button action = {this.handleCheckout}>Checkout</Button>: ""
+                }
+            </div>}
+        </div>
         );
     }
 }
