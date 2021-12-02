@@ -4,6 +4,70 @@
 
 * **Erika Hana Prasanti** - *1906298872* - *APAP B*
 
+## Tutorial 8✨
+
+### What I have learned today✅😊
+
+Pada tutorial kali ini, saya kembali belajar ReactJS, namun sudah lebih advanced dari tutorial sebelumnya. Jadi, pada tutorial kali ini, saya benar-benar belajar bagaimana membangun aplikasi full, dari mulai backend-nya hingga frontend-nya. Jadi, di sini saya membuat aplikasi berbasis react yang menampilkan list item dan untuk latihannya membuat cart untuk checkout. Secara keseluruhan, menurut saya, materi ini cukup sulit dan perlu banyak waktu bagi saya untuk memahaminya. Selain itu, latihannya juga kita membuat suatu halaman tersendiri memakai react dari awal sekali, sehingga butuh waktu lama bagi saya untuk menyelesaikannya. Semoga ke depannya saya dapat lebih memahami materi ini!😅
+
+### Pertanyaan
+
+**1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut?**
+
+Awalnya saya tidak menyadari hal ini karena ketika saya memuat form lagi, tidak ada data yang tersimpan. Namun, ternyata, setelah saya review kembali, Latihan nomor satu ini bisa ter-solve dengan sendirinya karena ada code di bawah ini.
+```ruby
+    this.setState({
+                id: "",
+                title: "",
+                price: 0,
+                description: "",
+                category: "",
+                quantity: 0
+            })
+
+```
+
+yang berada setelah this.loadData(). Hal ini membuat ketika formnya kembali dibuka, maka field-nya sudah kosong kembali. 
+
+**2. Jelaskan fungsi dari async dan await!**
+
+Async/Await merupakan sebuah syntax khusus yang digunakan untuk bekerja dengan Promise agar lebih nyaman dan mudah untuk digunakan. Async/Await terbagi menjadi Async dan Await. Async sendiri merupakan sebuah fungsi yang mengembalikan sebuah Promise. Lalu, fungsi async juga memungkinkan kita untuk menulis kode berbasis-promise seakan-akan itu sinkron, namun tanpa memblokir thread utama. Fungsi tersebut membuat kode asinkron kita yang kurang "cerdas" dan lebih mudah dibaca. Di sisi lain, Await sendiri merupakan fungsi yang hanya berjalan di dalam Async. Await bertujuan untuk menunda jalannya Async hingga proses dari Await tersebut berhasil dieksekusi. 
+
+**3. Masukkan jawaban dari Screenshot yang diperintahkan di halaman 9 pada Component Lifecycle pada pertanyaan ini.**
+
+Screenshot tutorial 8 yang diperintahkan di halaman 9 dapat dilihat pada link di bawah ini:
+
+[Screenshot Tutorial 8 Nomor 3](https://docs.google.com/document/d/1DsVtE8TmIT4Xfdr8jKy0USOAaWUZwPKGLMZHktjYuO0/edit?usp=sharing)
+ 
+**4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”**
+
+Berikut merupakan penjelasan dari masing-masing fungsi:
+
+- componentDidMount: untuk dipanggil ketika suatu komponen selesai dibuat dan biasa digunakan untuk mengetahui kapan komponen selesai dibuat.
+- shouldComponentUpdate: untuk menentukan apakah sebuah component akan kembali di-render atau tidak perlu. Method ini akan mengembalikan nilai boolean true & false. Jika true, maka komponen akan di-render ulang, namun jika false maka komponen tidak di-render ulang.
+- componentDidUpdate: untuk memanipulasi DOM dan request data dan dipanggil ketika tahap sebelum atau sesudah komponen di-render ulang, biasanya digunakan ketika ada pekerjaan di luar react untuk update komponen.
+- componentWillRecieveProps: untuk mengeksekusi apabila state yang ada di component akan di-update atau diubah dengan nilai props yang baru.
+- componentWillUnmount: untuk dipanggil segera sebeum komponen dilepas atau dihancurkan, biasa digunakan untuk pembersihan, seperti membatalkan penghitung waktu, membatalkan permintaan jaringan, atau membersihkan langganan apapun yang dibuat di componentDidMount.
+
+### What I did not understand😩
+- [ ] Syntax React sangat asing, sehingga perlu beberapa waktu untuk mempelajarinya.
+- [ ] Banyak method yang asing, jadi perlu banyak searching maksud tiap-tiap syntax yang dituliskan di tutorial.
+
+### Referensi
+
+https://www.kawankoding.id/javascript-async-await/
+
+https://developers.google.com/web/fundamentals/primers/async-functions?hl=id
+
+https://medium.com/codeacademia/apa-itu-component-lifecycle-di-react-bfcb64f64e0e
+
+https://www.konsepkoding.com/2020/03/tutorial-dan-penjelasan-lifecycle-reactnative.html
+
+https://medium.com/@adhiguna.sabril/mengenal-component-life-cycle-pada-react-js-dengan-es6-d7f558092851
+
+https://id.reactjs.org/docs/react-component.html
+
+
 ## Tutorial 7✨
 
 ### What I have learned today✅😊
@@ -86,7 +150,7 @@ Berikut merupakan beberapa perbedaan antara class component dan functional compo
 React element merupakan suatu objek sederhana yang menggambarkan DOM node dan atribut atau propertinya. React element ini juga merupakan suatu objek deskripsi yang tidak dapat diubah dan kita tidak dapat menerapkan metode apa pun di atasnya. Intinya, react element ini adalah deskripsi tentang apa yang ingin kita tampilkan di layar dan bersifat deklaratif. Di sisi lain, react component singkatnya adalah kumpulan elemen react. Lebih lanjut, element react ini merupakan suatu fungsi atau class yang menerima input dan mengembalikan elemen React. React component ini harus menyimpan referensi ke DOM node dan ke instance child component.
 
 ### What I did not understand😩
-- [ ] Masih ada beberapa syntax yang asing, sehingga perlu belajar terlebih dahulu.
+- [v] Masih ada beberapa syntax yang asing, sehingga perlu belajar terlebih dahulu.
 
 ### Referensi
 

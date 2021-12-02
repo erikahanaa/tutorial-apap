@@ -1,0 +1,13 @@
+.search {
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.name {
+    padding-right: 15px;
+}
+.box {
+    width: 1100px;
+    height: 25px;
+    border-radius: 5px;
+}
